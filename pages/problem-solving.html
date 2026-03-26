@@ -16,73 +16,155 @@
         <span class="brand-mark">NK</span>
         <span class="brand-copy">
           <strong>Nishant Kumar</strong>
-          <span>Problem Solving Page</span>
+          <span>Problem Solving</span>
         </span>
       </a>
       <nav class="top-nav">
         <a href="../index.html">Home</a>
-        <a href="research.html">Research</a>
-        <a href="nstse.html">NSTSE</a>
+        <a href="../index.html#skills">Back to Skills</a>
+        <a href="../index.html#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="page-shell">
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> &gt; <a href="../index.html#skills">Skill Pages</a> &gt; Problem Solving</p>
+
     <section class="hero">
       <div class="hero-card">
-        <span class="eyebrow">Problem Solving</span>
-        <h1>Learning by facing challenges and working through them step by step.</h1>
+        <span class="eyebrow">Mindset / Problem Solving</span>
+        <h1>Breaking a big issue into smaller actions until the result becomes manageable.</h1>
         <p>
-          Problem solving is one of the most important parts of my academic and technical growth.
-          It helps me stay calm, think logically, and keep improving through effort and repetition.
+          Problem solving is the skill I use when something is unclear, broken, or incomplete. It guides the way I debug
+          web pages, organize features, improve study plans, and keep moving even when the answer is not obvious at first.
         </p>
         <div class="button-row">
-          <a class="button button-primary" href="../index.html#skills">Back To Skill Pages</a>
-          <a class="button button-secondary" href="research.html">Open Research Page</a>
+          <a class="button button-primary" href="web-development.html">Open Web Development</a>
+          <a class="button button-secondary" href="research.html">Research Workflow</a>
         </div>
       </div>
       <aside class="panel">
         <div class="panel-grid">
           <div class="stat-box">
-            <strong>Step By Step</strong>
-            <p>Break the problem, test ideas, learn from mistakes, and improve the result.</p>
+            <strong>My Process</strong>
+            <p>Observe the issue, isolate the cause, test one change at a time, and keep the solution simple.</p>
           </div>
           <div class="mini-box">
             <span class="pill">Mindset</span>
-            <p>Persistence, curiosity, and logical thinking are at the center of this skill.</p>
+            <p>Patience, logic, and persistence matter more than guessing fast or changing everything at once.</p>
           </div>
         </div>
       </aside>
     </section>
 
-    <section class="content-grid">
-      <article class="info-card">
-        <h3>Where I use it</h3>
-        <p>Problem solving appears in both study and practical digital work.</p>
-        <ul class="bullet-list">
-          <li>Mathematics and science practice</li>
-          <li>Debugging websites and code</li>
-          <li>Improving content and project decisions</li>
-        </ul>
-      </article>
-      <article class="info-card">
-        <h3>Why it is important</h3>
-        <p>It turns difficulty into progress instead of stopping growth.</p>
-        <ul class="bullet-list">
-          <li>Builds confidence through action</li>
-          <li>Supports future software engineering work</li>
-          <li>Makes learning more practical and effective</li>
-        </ul>
-      </article>
-      <article class="link-card">
-        <h3>Related pages</h3>
-        <p>This skill connects well with research and academic achievement.</p>
-        <div class="button-row">
-          <a class="button button-secondary" href="research.html">Research Page</a>
-          <a class="button button-secondary" href="nstse.html">NSTSE Page</a>
-        </div>
-      </article>
+    <div class="stats-strip">
+      <div class="stat-tile">
+        <strong>Debugging Mindset</strong>
+        <span>I use step-by-step testing instead of random changes when a page or feature breaks.</span>
+      </div>
+      <div class="stat-tile">
+        <strong>Study Application</strong>
+        <span>Maths and science problems train me to look for patterns, constraints, and smaller steps.</span>
+      </div>
+      <div class="stat-tile">
+        <strong>Project Delivery</strong>
+        <span>This skill helped connect pages, improve navigation, and shape usable project flows.</span>
+      </div>
+    </div>
+
+    <section class="section-block">
+      <h2>Problems I Solved</h2>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Fixing profile image presentation</h3>
+          <p>When the image flow was not working correctly, I treated it like a visual debugging problem: source format, conversion, and display path all had to be checked separately.</p>
+          <ul class="bullet-list">
+            <li>Separated the asset problem from the layout problem.</li>
+            <li>Used a web-ready image output instead of relying on an unsuitable source file.</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Building a donation flow</h3>
+          <p>The donation feature needed multiple paths: QR display, custom amount logic, and a direct Razorpay option. Solving it meant simplifying the user journey first.</p>
+          <ul class="bullet-list">
+            <li>Started with one clear CTA and then added options under it.</li>
+            <li>Kept the page lightweight so it works on GitHub Pages.</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Organizing a multi-page skill system</h3>
+          <p>Instead of keeping every skill on one page, I structured the portfolio into separate pages with shared navigation and styling so the content becomes easier to scan.</p>
+          <ul class="bullet-list">
+            <li>Reduced clutter on the homepage.</li>
+            <li>Made each skill easier to present with examples and links.</li>
+          </ul>
+        </article>
+      </div>
     </section>
+
+    <section class="section-block">
+      <h2>Step-by-Step Approach</h2>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>1. Define the actual issue</h3>
+          <p>I first write down what is wrong in one sentence. This stops me from solving the wrong problem.</p>
+        </article>
+        <article class="info-card">
+          <h3>2. Change one variable</h3>
+          <p>I test one meaningful change at a time so I can understand which action created the improvement.</p>
+        </article>
+        <article class="info-card">
+          <h3>3. Keep the best version</h3>
+          <p>Once the solution works, I keep the cleaner and simpler version instead of adding unnecessary complexity.</p>
+        </article>
+      </div>
+      <pre class="code-block"><code>const checks = ["path", "data", "layout"];
+
+for (const check of checks) {
+  console.log(`Testing: ${check}`);
+}
+
+console.log("Solve one clear layer before moving to the next.");</code></pre>
+    </section>
+
+    <section class="section-block">
+      <h2>Key Achievements</h2>
+      <ul class="bullet-list">
+        <li>Applied debugging logic to portfolio structure, content organization, and visual fixes.</li>
+        <li>Used problem solving in both academic practice and practical website work.</li>
+        <li>Improved project quality by focusing on root causes instead of surface-level changes.</li>
+        <li>Built confidence by solving issues through method, not luck.</li>
+      </ul>
+    </section>
+
+    <section class="section-block">
+      <h2>Tips and Resources</h2>
+      <div class="resource-list">
+        <article class="resource-card">
+          <strong>Write the bug in plain language</strong>
+          <p>If you cannot explain the issue simply, you probably need to understand it better before trying to fix it.</p>
+        </article>
+        <article class="resource-card">
+          <strong>Use small experiments</strong>
+          <p>One focused test gives more information than five random changes. This applies to coding and study both.</p>
+        </article>
+        <article class="resource-card">
+          <strong>Keep notes on what failed</strong>
+          <p>Failed attempts are useful because they remove wrong paths and make the next decision sharper.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <div>
+        <strong>Related Pages</strong>
+        <p><a href="research.html">Research</a> and <a href="nstse.html">NSTSE</a> both benefit from this mindset.</p>
+      </div>
+      <div>
+        <a href="../index.html">Main Portfolio</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </footer>
   </main>
 </body>
 </html>

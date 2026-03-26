@@ -3,86 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Skill | Nishant Kumar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="skill-pages.css">
+  <meta name="description" content="Pure HTML Portfolio Showcase demonstrating semantic HTML5, accessibility, SEO structure, forms, tables, lists, and content hierarchy.">
+  <meta name="keywords" content="HTML5, semantic HTML, portfolio, blog layout, accessibility, forms, SEO">
+  <meta name="author" content="Nishant Kumar">
+  <meta name="robots" content="index, follow">
+  <title>Pure HTML Portfolio Showcase</title>
+  <style>
+    body { font-family: Georgia, serif; margin: 0; line-height: 1.6; color: #1d2935; background: #f6f8fb; }
+    header, nav, main, section, article, aside, footer { display: block; }
+    header, main, footer { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+    nav ul, .footer-links, .service-list, .timeline-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    nav a, .footer-links a { text-decoration: none; color: #0f4c81; }
+    .hero, .grid, .footer-grid { display: grid; gap: 1rem; }
+    .hero { grid-template-columns: 2fr 1fr; align-items: start; }
+    .grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card, .panel, .post, .project-card, .table-wrap, .quote-box, .code-box { background: #fff; border: 1px solid #d8e0ea; border-radius: 12px; padding: 1rem; }
+    .project-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; background: #dde6f0; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #ccd6e0; padding: 0.7rem; text-align: left; }
+    form { display: grid; gap: 0.85rem; }
+    input, textarea, select, button { font: inherit; padding: 0.75rem; border: 1px solid #c5d1de; border-radius: 8px; }
+    button { cursor: pointer; background: #0f4c81; color: #fff; }
+    code, pre { font-family: "Courier New", monospace; }
+    pre { white-space: pre-wrap; margin: 0; }
+    .breadcrumb { font-size: 0.95rem; margin-bottom: 1rem; }
+    .footer-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    @media (max-width: 760px) { .hero { grid-template-columns: 1fr; } }
+  </style>
 </head>
-<body class="theme-html">
-  <header class="site-top">
-    <div class="page-shell top-inner">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">NK</span>
-        <span class="brand-copy">
-          <strong>Nishant Kumar</strong>
-          <span>HTML Skill Page</span>
-        </span>
-      </a>
-      <nav class="top-nav">
-        <a href="../index.html">Home</a>
-        <a href="css.html">CSS</a>
-        <a href="javascript.html">JavaScript</a>
-      </nav>
-    </div>
+<body data-page="html-showcase">
+  <header role="banner" aria-label="Main header">
+    <p class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Portfolio</a> &gt; <a href="../index.html#skills">Skill Pages</a> &gt; HTML
+    </p>
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="../index.html">Main Portfolio</a></li>
+        <li><a href="../index.html#skills">Back to Skills</a></li>
+        <li><a href="#hero">Introduction</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="page-shell">
-    <section class="hero">
-      <div class="hero-card">
-        <span class="eyebrow">HTML</span>
-        <h1>Building clean structure for professional websites.</h1>
+  <main id="main-content" role="main">
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <article class="card" data-section="hero">
+        <p>Project Title</p>
+        <h1 id="hero-title">Pure HTML Portfolio Showcase</h1>
         <p>
-          HTML is the foundation of every page I build. I use it to organize content clearly, create meaningful sections,
-          and make websites easier to read, navigate, and improve.
+          This project proves that a complete, readable, SEO-aware website can be built with semantic HTML5 and only a minimal inline style block.
+          The focus is on structure, content hierarchy, accessibility, and correct tag usage.
         </p>
-        <div class="button-row">
-          <a class="button button-primary" href="../index.html#skills">Back To Skill Pages</a>
-          <a class="button button-secondary" href="../index.html#contact">Contact</a>
-        </div>
-      </div>
-      <aside class="panel">
-        <div class="panel-grid">
-          <div class="stat-box">
-            <strong>Semantic</strong>
-            <p>Structured sections, headings, cards, links, and content blocks.</p>
-          </div>
-          <div class="mini-box">
-            <span class="pill">Strength</span>
-            <p>Creating pages that are readable, organized, and easy to style later.</p>
-          </div>
-        </div>
+        <ul class="service-list" aria-label="Highlight list">
+          <li>Semantic HTML5</li>
+          <li>Accessible structure</li>
+          <li>SEO-ready metadata</li>
+          <li>Forms, tables, lists, and content sections</li>
+        </ul>
+      </article>
+      <aside class="panel" aria-label="Quick facts">
+        <h2>Project Snapshot</h2>
+        <dl>
+          <dt>Category</dt>
+          <dd>Frontend Foundations</dd>
+          <dt>Focus</dt>
+          <dd>HTML semantics and accessibility</dd>
+          <dt>Tools</dt>
+          <dd>HTML5, browser dev tools, Live Server</dd>
+        </dl>
       </aside>
     </section>
 
-    <section class="content-grid">
-      <article class="info-card">
-        <h3>What I focus on</h3>
-        <p>Clear page structure and a strong content hierarchy.</p>
-        <ul class="bullet-list">
-          <li>Semantic layout with sections, headers, footers, and cards</li>
-          <li>Professional portfolio pages and project presentation</li>
-          <li>Simple, maintainable markup for future growth</li>
-        </ul>
-      </article>
-      <article class="info-card">
-        <h3>How it helps my projects</h3>
-        <p>Good HTML makes every website easier to design, edit, and understand.</p>
-        <ul class="bullet-list">
-          <li>Better readability for users</li>
-          <li>Cleaner layouts for styling in CSS</li>
-          <li>Stronger base for interactive features in JavaScript</li>
-        </ul>
-      </article>
-      <article class="link-card">
-        <h3>Related page</h3>
-        <p>HTML works best when combined with strong styling and interaction.</p>
-        <div class="button-row">
-          <a class="button button-secondary" href="css.html">Open CSS Page</a>
-          <a class="button button-secondary" href="web-development.html">Open Web Dev Page</a>
-        </div>
+    <section id="services" aria-labelledby="services-title">
+      <h2 id="services-title">Services and Skills</h2>
+      <div class="grid" role="list" aria-label="Service cards">
+        <article class="card" role="listitem" data-skill="semantic-structure">
+          <h3>Semantic Layouts</h3>
+          <p>Using <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;footer&gt;</code> to create readable page architecture.</p>
+        </article>
+        <article class="card" role="listitem" data-skill="forms">
+          <h3>Form Building</h3>
+          <p>Building contact forms with labels, validation attributes, semantic input types, and accessible instructions.</p>
+        </article>
+        <article class="card" role="listitem" data-skill="seo">
+          <h3>SEO Basics</h3>
+          <p>Applying meta descriptions, heading hierarchy, human-readable content structure, and descriptive link text.</p>
+        </article>
+        <article class="card" role="listitem" data-skill="content">
+          <h3>Content Systems</h3>
+          <p>Combining articles, sidebars, quotes, lists, tables, and code blocks into one clear document flow.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="portfolio" aria-labelledby="portfolio-title">
+      <h2 id="portfolio-title">Portfolio Projects</h2>
+      <div class="grid">
+        <article class="project-card" data-project="portfolio-system">
+          <img src="../assets/profile-web.jpg" alt="Profile image used in the portfolio homepage">
+          <h3>Portfolio System</h3>
+          <p>A multi-page portfolio structure connecting main sections, skill pages, donation flow, and contact details.</p>
+        </article>
+        <article class="project-card" data-project="semantic-showcase">
+          <img src="../assets/donate-qr.jpeg" alt="Sample structured image block used to demonstrate semantic content cards">
+          <h3>Structured Content Showcase</h3>
+          <p>Demonstrates semantic cards, proper heading hierarchy, and descriptive image handling in HTML.</p>
+        </article>
+        <article class="project-card" data-project="accessible-form">
+          <img src="../assets/profile-web.jpg" alt="Profile image used as a sample visual block inside the HTML project layout">
+          <h3>Accessible Contact Form</h3>
+          <p>HTML5 form controls with labels, required fields, validation, and assistive-friendly instructions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="structured-data-title">
+      <h2 id="structured-data-title">Structured Data Examples</h2>
+      <div class="table-wrap">
+        <table aria-label="Learning summary table">
+          <caption>HTML Areas Practiced</caption>
+          <thead>
+            <tr>
+              <th scope="col">Area</th>
+              <th scope="col">Example Used</th>
+              <th scope="col">Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Forms</td>
+              <td>Contact form with validation</td>
+              <td>Improves usability and correctness</td>
+            </tr>
+            <tr>
+              <td>Tables</td>
+              <td>Skill tracking table</td>
+              <td>Organizes structured information clearly</td>
+            </tr>
+            <tr>
+              <td>Lists</td>
+              <td>Ordered, unordered, and description lists</td>
+              <td>Helps content remain scan-friendly</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid">
+        <article class="quote-box">
+          <h3>Blockquote and Citation</h3>
+          <blockquote cite="https://developer.mozilla.org/">
+            “HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.”
+          </blockquote>
+          <p><cite>MDN Web Docs</cite></p>
+        </article>
+
+        <article class="code-box">
+          <h3>Code Snippet</h3>
+          <pre><code>&lt;section aria-labelledby="projects-title"&gt;
+  &lt;h2 id="projects-title"&gt;Featured Work&lt;/h2&gt;
+  &lt;article&gt;Semantic content here&lt;/article&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section id="blog" aria-labelledby="blog-title">
+      <h2 id="blog-title">Blog Section</h2>
+      <div class="grid">
+        <article class="post" data-post="1">
+          <h3>Why Semantic HTML Still Matters</h3>
+          <p><time datetime="2026-03-27">March 27, 2026</time></p>
+          <p>Semantic HTML improves readability, accessibility, and collaboration. It also makes later CSS and JavaScript work easier to manage.</p>
+        </article>
+        <article class="post" data-post="2">
+          <h3>What I Learned from Building a Portfolio</h3>
+          <p><time datetime="2026-03-20">March 20, 2026</time></p>
+          <p>Building a portfolio taught me how structure, content, and presentation work together to communicate technical skills clearly.</p>
+        </article>
+        <article class="post" data-post="3">
+          <h3>Accessibility Basics I Use by Default</h3>
+          <p><time datetime="2026-03-14">March 14, 2026</time></p>
+          <p>Alt text, label associations, heading hierarchy, and landmarks are small details that create a more complete web experience.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="lists-title">
+      <h2 id="lists-title">List Examples</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Ordered List</h3>
+          <ol>
+            <li>Plan semantic sections</li>
+            <li>Write structured content</li>
+            <li>Add forms, lists, and tables</li>
+            <li>Review accessibility and SEO</li>
+          </ol>
+        </article>
+        <article class="card">
+          <h3>Unordered List</h3>
+          <ul>
+            <li>Meta tags</li>
+            <li>ARIA labels</li>
+            <li>Data attributes</li>
+            <li>HTML5 validation</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Description List</h3>
+          <dl>
+            <dt>ARIA</dt>
+            <dd>Extra accessibility context for interactive or landmark content.</dd>
+            <dt>Data Attributes</dt>
+            <dd>Custom metadata used for organization or hooks.</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Form</h2>
+      <article class="card">
+        <form action="#" method="post" aria-label="Contact form" novalidate>
+          <label for="full-name">Full Name</label>
+          <input id="full-name" name="full-name" type="text" required minlength="2" autocomplete="name">
+
+          <label for="email-address">Email Address</label>
+          <input id="email-address" name="email-address" type="email" required autocomplete="email">
+
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic" required>
+            <option value="">Choose a topic</option>
+            <option value="portfolio">Portfolio Feedback</option>
+            <option value="project">Project Discussion</option>
+            <option value="collaboration">Collaboration</option>
+          </select>
+
+          <label for="website-url">Website</label>
+          <input id="website-url" name="website-url" type="url" placeholder="https://example.com">
+
+          <label for="meeting-date">Preferred Meeting Date</label>
+          <input id="meeting-date" name="meeting-date" type="date">
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required minlength="20"></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
       </article>
     </section>
   </main>
+
+  <footer role="contentinfo" aria-label="Footer">
+    <div class="footer-grid">
+      <section>
+        <h2>About This Page</h2>
+        <p>A pure HTML demonstration project with minimal inline styling and strong semantic structure.</p>
+      </section>
+      <section>
+        <h2>Quick Links</h2>
+        <ul class="footer-links">
+          <li><a href="../index.html">Main Portfolio</a></li>
+          <li><a href="../index.html#skills">Back to Skills</a></li>
+          <li><a href="../index.html#contact">Main Contact</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <address>
+          Nishant Kumar<br>
+          Patna, Bihar, India<br>
+          <a href="mailto:nishant0880kumar@gmail.com">nishant0880kumar@gmail.com</a>
+        </address>
+      </section>
+    </div>
+  </footer>
 </body>
 </html>

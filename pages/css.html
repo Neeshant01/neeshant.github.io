@@ -3,86 +3,412 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Skill | Nishant Kumar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="skill-pages.css">
+  <title>CSS Showcase Lab | Nishant Kumar</title>
+  <style>
+    :root {
+      --bg: #101827;
+      --panel: #162236;
+      --panel-soft: #1d2d46;
+      --line: rgba(255,255,255,0.12);
+      --text: #eef5ff;
+      --muted: #b2c4dc;
+      --accent: #5eead4;
+      --accent-2: #ffcc66;
+      --card-size: 130px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #101827 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1rem 0 3rem;
+    }
+    .topbar, .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .topbar a, .footer a {
+      color: #9fd7ff;
+    }
+    .hero, .project-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .hero p { max-width: 68ch; color: var(--muted); }
+    .project-card h2 { margin-top: 0; }
+    .project-card > p { color: var(--muted); }
+    .project-grid { display: grid; gap: 1rem; }
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      perspective: 1000px;
+    }
+    .memory-card {
+      position: relative;
+      height: var(--card-size);
+      transform-style: preserve-3d;
+      transition: transform 0.7s ease;
+    }
+    .memory-card:hover { transform: rotateY(180deg); }
+    .memory-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      backface-visibility: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .memory-front {
+      background: linear-gradient(135deg, #1b2a41, #243b5a);
+    }
+    .memory-back {
+      transform: rotateY(180deg);
+      color: #08131d;
+    }
+    .memory-back[data-tone="mint"] { background: #5eead4; }
+    .memory-back[data-tone="gold"] { background: #ffd166; }
+    .memory-back[data-tone="rose"] { background: #ff8fab; }
+    .memory-back[data-tone="violet"] { background: #cdb4ff; }
+    .memory-back[data-tone="sky"] { background: #8ecae6; }
+    .memory-back[data-tone="lime"] { background: #b9f18c; }
+
+    .sequence-board {
+      counter-reset: tile;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
+      gap: 1rem;
+      max-width: 360px;
+    }
+    .sequence-button {
+      counter-increment: tile;
+      min-height: 140px;
+      border-radius: 24px;
+      position: relative;
+      border: 0;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+      overflow: hidden;
+    }
+    .sequence-button::after {
+      content: counter(tile);
+      position: absolute;
+      right: 16px;
+      bottom: 14px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.78);
+    }
+    .sequence-button:hover {
+      transform: translateY(-4px) scale(1.02);
+      filter: saturate(1.15);
+    }
+    .sequence-button:active {
+      transform: scale(0.96);
+    }
+    .sequence-red { background: radial-gradient(circle, #ff6b6b, #c81d25); box-shadow: 0 0 0 transparent; animation: redPulse 2.2s infinite; }
+    .sequence-blue { background: radial-gradient(circle, #76c7ff, #2066d6); animation: blueFloat 2.6s infinite; }
+    .sequence-yellow { background: radial-gradient(circle, #ffe082, #d4a017); animation: yellowFlash 2s infinite; }
+    .sequence-green { background: radial-gradient(circle, #86efac, #22a45b); animation: greenGlow 2.4s infinite; }
+    .sequence-red:hover { box-shadow: 0 0 32px rgba(255,107,107,0.65); }
+    .sequence-blue:hover { box-shadow: 0 0 32px rgba(118,199,255,0.65); }
+    .sequence-yellow:hover { box-shadow: 0 0 32px rgba(255,224,130,0.65); }
+    .sequence-green:hover { box-shadow: 0 0 32px rgba(134,239,172,0.65); }
+    @keyframes redPulse { 50% { filter: brightness(1.1); } }
+    @keyframes blueFloat { 50% { transform: translateY(-3px); } }
+    @keyframes yellowFlash { 50% { box-shadow: inset 0 0 0 5px rgba(255,255,255,0.15); } }
+    @keyframes greenGlow { 50% { filter: brightness(1.14); } }
+
+    .snake-board {
+      --cell: 24px;
+      position: relative;
+      width: min(100%, 420px);
+      aspect-ratio: 1;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      background:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+        #101d2f;
+      background-size: calc(100% / 12) calc(100% / 12);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .snake-track, .food {
+      position: absolute;
+      border-radius: 999px;
+    }
+    .snake-track {
+      width: 26%;
+      height: 8%;
+      background: linear-gradient(90deg, #5eead4, #7dd3fc);
+      filter: drop-shadow(0 0 10px rgba(94,234,212,0.45));
+      animation: snakePath 5s linear infinite;
+    }
+    .snake-track::before, .snake-track::after {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 100%;
+      border-radius: inherit;
+      background: inherit;
+      left: -60%;
+    }
+    .snake-track::after { left: -120%; opacity: 0.6; }
+    .food {
+      width: 7%;
+      height: 7%;
+      background: radial-gradient(circle, #ffd166, #f97316);
+      top: 18%;
+      left: 70%;
+      animation: foodBlink 1.2s infinite alternate;
+    }
+    @keyframes snakePath {
+      0% { top: 8%; left: 6%; }
+      25% { top: 8%; left: 62%; }
+      50% { top: 42%; left: 62%; }
+      75% { top: 42%; left: 18%; }
+      100% { top: 74%; left: 46%; }
+    }
+    @keyframes foodBlink { from { transform: scale(1); } to { transform: scale(1.18); } }
+
+    .cube-scene {
+      width: 230px;
+      height: 230px;
+      margin: 0 auto;
+      perspective: 900px;
+    }
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: cubeLoad 8s infinite linear;
+      transition: transform 1s ease;
+    }
+    .cube:hover { transform: rotateX(-25deg) rotateY(135deg); }
+    .face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #061017;
+      font-weight: 700;
+      text-align: center;
+      padding: 1rem;
+    }
+    .front  { transform: translateZ(115px); background: #67e8f9; }
+    .back   { transform: rotateY(180deg) translateZ(115px); background: #fde68a; }
+    .right  { transform: rotateY(90deg) translateZ(115px); background: #86efac; }
+    .left   { transform: rotateY(-90deg) translateZ(115px); background: #f9a8d4; }
+    .top    { transform: rotateX(90deg) translateZ(115px); background: #c4b5fd; }
+    .bottom { transform: rotateX(-90deg) translateZ(115px); background: #fdba74; }
+    @keyframes cubeLoad {
+      from { transform: rotateX(-18deg) rotateY(0deg); }
+      to { transform: rotateX(-18deg) rotateY(360deg); }
+    }
+
+    .shape-stage {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      align-items: center;
+    }
+    .shape-card {
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      background: #101d2f;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+    }
+    .shape-circle, .shape-rect, .shape-triangle {
+      animation: colorShift 4s infinite alternate;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+    .shape-card:hover .shape-circle,
+    .shape-card:hover .shape-rect,
+    .shape-card:hover .shape-triangle {
+      transform: scale(1.1) rotate(12deg);
+      filter: brightness(1.15);
+    }
+    .shape-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 6px solid #5eead4;
+      box-shadow: 0 0 0 6px rgba(94,234,212,0.1);
+      animation-name: circlePulse, colorShift;
+      animation-duration: 2.8s, 4s;
+      animation-iteration-count: infinite, infinite;
+    }
+    .shape-rect {
+      width: 110px;
+      height: 70px;
+      border: 6px solid #7dd3fc;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.2);
+      animation-name: rectStretch, colorShift;
+      animation-duration: 3s, 4s;
+      animation-iteration-count: infinite, infinite;
+    }
+    .shape-triangle {
+      width: 0;
+      height: 0;
+      border-left: 55px solid transparent;
+      border-right: 55px solid transparent;
+      border-bottom: 100px solid #ffd166;
+      animation-name: triangleSpin, colorShift;
+      animation-duration: 3.2s, 4s;
+      animation-iteration-count: infinite, infinite;
+    }
+    @keyframes colorShift {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(80deg); }
+    }
+    @keyframes circlePulse { 50% { transform: scale(1.08); } }
+    @keyframes rectStretch { 50% { transform: scaleX(1.18); } }
+    @keyframes triangleSpin { 50% { transform: rotate(12deg); } }
+
+    .stack {
+      display: grid;
+      gap: 0.85rem;
+    }
+    @media (max-width: 900px) {
+      .memory-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      .memory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sequence-board { max-width: none; }
+    }
+  </style>
 </head>
-<body class="theme-css">
-  <header class="site-top">
-    <div class="page-shell top-inner">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">NK</span>
-        <span class="brand-copy">
-          <strong>Nishant Kumar</strong>
-          <span>CSS Skill Page</span>
-        </span>
-      </a>
-      <nav class="top-nav">
-        <a href="../index.html">Home</a>
-        <a href="html.html">HTML</a>
-        <a href="javascript.html">JavaScript</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="page-shell">
-    <section class="hero">
-      <div class="hero-card">
-        <span class="eyebrow">CSS</span>
-        <h1>Turning simple layouts into polished visual experiences.</h1>
-        <p>
-          CSS is where I shape the look, feel, spacing, colors, responsiveness, and professional quality of a page.
-          It helps me make websites modern, attractive, and easier to use on both desktop and mobile.
-        </p>
-        <div class="button-row">
-          <a class="button button-primary" href="../index.html#skills">Back To Skill Pages</a>
-          <a class="button button-secondary" href="html.html">Open HTML Page</a>
-        </div>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div>
+        <p><a href="../index.html">Portfolio</a> &gt; <a href="../index.html#skills">Skill Pages</a> &gt; CSS</p>
+        <h1>CSS Showcase Lab</h1>
       </div>
-      <aside class="panel">
-        <div class="panel-grid">
-          <div class="stat-box">
-            <strong>Responsive</strong>
-            <p>Layouts, sections, and cards designed to adapt cleanly across screen sizes.</p>
-          </div>
-          <div class="mini-box">
-            <span class="pill">Style Goal</span>
-            <p>Professional buttons, backgrounds, gradients, panels, and modern website presentation.</p>
-          </div>
-        </div>
-      </aside>
+      <nav>
+        <a href="../index.html">Main Portfolio</a>
+        <a href="../index.html#skills">Back to Skills</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Pure CSS project gallery</h2>
+      <p>
+        This page demonstrates CSS Grid, Flexbox, transforms, 3D perspective, hover states, counters, shapes, and animation timing
+        by combining multiple CSS-only experiments into one responsive showcase.
+      </p>
     </section>
 
-    <section class="content-grid">
-      <article class="info-card">
-        <h3>Design strengths</h3>
-        <p>CSS helps me create websites that look thoughtful, modern, and complete.</p>
-        <ul class="bullet-list">
-          <li>Responsive layout systems</li>
-          <li>Professional buttons and card components</li>
-          <li>Section backgrounds, spacing, and visual hierarchy</li>
-        </ul>
-      </article>
-      <article class="info-card">
-        <h3>Where I apply it</h3>
-        <p>From portfolios to skill pages, CSS gives personality and polish to each build.</p>
-        <ul class="bullet-list">
-          <li>Creative backgrounds and gradients</li>
-          <li>Interactive hover states and clean typography</li>
-          <li>Consistent styling across multiple pages</li>
-        </ul>
-      </article>
-      <article class="link-card">
-        <h3>Next steps</h3>
-        <p>CSS becomes even stronger when paired with full web development practice.</p>
-        <div class="button-row">
-          <a class="button button-secondary" href="web-development.html">Open Web Dev Page</a>
-          <a class="button button-secondary" href="image-editing.html">Open Image Editing Page</a>
+    <main class="project-grid">
+      <article class="project-card">
+        <h2>Project 1: CSS Card Memory Game</h2>
+        <p>12 cards in a 4x3 grid. Each card flips in 3D on hover and reveals a different color and symbol using only CSS transforms and transitions.</p>
+        <div class="memory-grid">
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="mint">A</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="gold">B</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="rose">C</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="violet">D</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="sky">E</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="lime">F</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="mint">G</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="gold">H</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="rose">I</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="violet">J</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="sky">K</div></div>
+          <div class="memory-card"><div class="memory-face memory-front">?</div><div class="memory-face memory-back" data-tone="lime">L</div></div>
         </div>
       </article>
-    </section>
-  </main>
+
+      <article class="project-card">
+        <h2>Project 2: CSS Button Sequence Game</h2>
+        <p>Four bright buttons arranged in a square, each with a different animation, hover glow, and active press behavior. A CSS counter numbers the buttons automatically.</p>
+        <div class="sequence-board">
+          <button class="sequence-button sequence-red" aria-label="Red sequence button"></button>
+          <button class="sequence-button sequence-blue" aria-label="Blue sequence button"></button>
+          <button class="sequence-button sequence-yellow" aria-label="Yellow sequence button"></button>
+          <button class="sequence-button sequence-green" aria-label="Green sequence button"></button>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <h2>Project 3: CSS Interactive Snake Path Game</h2>
+        <p>A visual snake-style path demo using a CSS grid background, animated movement, color gradients, and a glowing food target.</p>
+        <div class="snake-board" aria-label="Animated snake board">
+          <div class="snake-track"></div>
+          <div class="food"></div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <h2>Project 4: CSS 3D Interactive Cube</h2>
+        <p>A pure CSS cube with six faces, 3D transforms, perspective, automatic load animation, and a hover rotation interaction.</p>
+        <div class="cube-scene">
+          <div class="cube">
+            <a class="face front" href="#cube-info">Front<br>Intro</a>
+            <a class="face back" href="#cube-info">Back<br>Projects</a>
+            <a class="face right" href="#cube-info">Right<br>Grid</a>
+            <a class="face left" href="#cube-info">Left<br>Motion</a>
+            <a class="face top" href="#cube-info">Top<br>3D</a>
+            <a class="face bottom" href="#cube-info">Bottom<br>Hover</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <h2>Project 5: CSS SVG-like Drawing with Animations</h2>
+        <p>Circle, rectangle, and triangle forms created with borders and simple blocks, animated in sequence with hover interactions and color shifts.</p>
+        <div class="shape-stage">
+          <div class="shape-card"><div class="shape-circle"></div></div>
+          <div class="shape-card"><div class="shape-rect"></div></div>
+          <div class="shape-card"><div class="shape-triangle"></div></div>
+        </div>
+      </article>
+
+      <article id="cube-info" class="project-card">
+        <h2>Key CSS Concepts Demonstrated</h2>
+        <div class="stack">
+          <p><strong>Grid and Flexbox:</strong> used for card layouts, section organization, and button placement.</p>
+          <p><strong>Transforms:</strong> 3D rotateY flips, perspective cube faces, hover scale, and animated movement.</p>
+          <p><strong>Animations and Transitions:</strong> pulsing buttons, moving snake path, cube rotation, and shape sequences.</p>
+          <p><strong>Variables and Media Queries:</strong> shared colors, card sizing, and responsive layout updates.</p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Footer</strong>
+        <p>Pure CSS experiments collected in one portfolio project page.</p>
+      </div>
+      <div>
+        <a href="../index.html">Main Portfolio</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

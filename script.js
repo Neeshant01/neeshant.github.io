@@ -1,8 +1,8 @@
 const typedText = document.getElementById("typed-text");
 const roles = [
-  "Student Developer",
+  "Ethical Tech Learner_",
+  "Frontend Builder",
   "JEE Aspirant",
-  "Ethical Tech Learner",
   "Future Software Engineer"
 ];
 
