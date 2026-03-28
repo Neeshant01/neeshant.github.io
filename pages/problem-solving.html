@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="skill-pages.css">
+  <link rel="stylesheet" href="project-app.css?v=20260328c">
 </head>
 <body class="theme-problem">
   <header class="site-top">
@@ -72,9 +73,9 @@
     <section class="section-block">
       <h2>Quick Access</h2>
       <div class="launcher-grid">
-        <a class="launcher-card" href="#module-1"><strong>Section 1</strong><span>Problems solved in real work</span></a>
-        <a class="launcher-card" href="#module-2"><strong>Section 2</strong><span>Step-by-step framework</span></a>
-        <a class="launcher-card" href="#module-3"><strong>Section 3</strong><span>Tips for solving faster</span></a>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-1" aria-pressed="true"><strong>Section 1</strong><span>Problems solved in real work</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-2" aria-pressed="false"><strong>Section 2</strong><span>Step-by-step framework</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-3" aria-pressed="false"><strong>Section 3</strong><span>Tips for solving faster</span></button>
       </div>
     </section>
 
@@ -93,7 +94,7 @@
       </div>
     </div>
 
-    <section id="module-1" class="section-block section-anchor">
+    <section id="module-1" class="section-block section-anchor workspace-panel" data-project-panel="module-1" data-project-title="Section 1: Problems solved in real work" data-project-summary="Examples of solving image, donation, and multi-page portfolio problems through step-by-step thinking.">
       <h2>Problems I Solved</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -123,7 +124,7 @@
       </div>
     </section>
 
-    <section id="module-2" class="section-block section-anchor">
+    <section id="module-2" class="section-block section-anchor workspace-panel" data-project-panel="module-2" data-project-title="Section 2: Step-by-step framework" data-project-summary="A simple debugging process for moving from issue to solution without random changes." hidden>
       <h2>Step-by-Step Approach</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -148,7 +149,7 @@ for (const check of checks) {
 console.log("Solve one clear layer before moving to the next.");</code></pre>
     </section>
 
-    <section id="module-3" class="section-block section-anchor">
+    <section id="module-3" class="section-block section-anchor workspace-panel" data-project-panel="module-3" data-project-title="Section 3: Tips for solving faster" data-project-summary="Achievements, notes, and practical tips that improve problem solving over time." hidden>
       <h2>Key Achievements</h2>
       <ul class="bullet-list">
         <li>Applied debugging logic to portfolio structure, content organization, and visual fixes.</li>
@@ -187,6 +188,7 @@ console.log("Solve one clear layer before moving to the next.");</code></pre>
       </div>
     </footer>
   </main>
+  <script src="project-switcher.js?v=20260328c" defer></script>
 </body>
 </html>
 

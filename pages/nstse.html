@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="skill-pages.css">
+  <link rel="stylesheet" href="project-app.css?v=20260328c">
 </head>
 <body class="theme-nstse">
   <header class="site-top">
@@ -72,9 +73,9 @@
     <section class="section-block">
       <h2>Quick Access</h2>
       <div class="launcher-grid">
-        <a class="launcher-card" href="#module-1"><strong>Section 1</strong><span>What NSTSE taught me</span></a>
-        <a class="launcher-card" href="#module-2"><strong>Section 2</strong><span>Study system behind the result</span></a>
-        <a class="launcher-card" href="#module-3"><strong>Section 3</strong><span>Resources and next steps</span></a>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-1" aria-pressed="true"><strong>Section 1</strong><span>What NSTSE taught me</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-2" aria-pressed="false"><strong>Section 2</strong><span>Study system behind the result</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-3" aria-pressed="false"><strong>Section 3</strong><span>Resources and next steps</span></button>
       </div>
     </section>
 
@@ -93,7 +94,7 @@
       </div>
     </div>
 
-    <section id="module-1" class="section-block section-anchor">
+    <section id="module-1" class="section-block section-anchor workspace-panel" data-project-panel="module-1" data-project-title="Section 1: What NSTSE taught me" data-project-summary="Lessons from NSTSE in concept clarity, pattern recognition, and exam discipline.">
       <h2>What I Learned Through NSTSE</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -111,7 +112,7 @@
       </div>
     </section>
 
-    <section id="module-2" class="section-block section-anchor">
+    <section id="module-2" class="section-block section-anchor workspace-panel" data-project-panel="module-2" data-project-title="Section 2: Study system behind the result" data-project-summary="The revision and problem-practice habits behind the achievement." hidden>
       <h2>Study System Behind the Result</h2>
       <ol class="timeline-list">
         <li>Revise core concepts first so problem-solving speed is built on understanding.</li>
@@ -121,7 +122,7 @@
       </ol>
     </section>
 
-    <section id="module-3" class="section-block section-anchor">
+    <section id="module-3" class="section-block section-anchor workspace-panel" data-project-panel="module-3" data-project-title="Section 3: Resources and next steps" data-project-summary="Achievements, study resources, and next-step guidance for continued growth." hidden>
       <h2>Key Achievements</h2>
       <ul class="bullet-list">
         <li>Earned an academic achievement that reflects strong effort in science and mathematics.</li>
@@ -160,6 +161,7 @@
       </div>
     </footer>
   </main>
+  <script src="project-switcher.js?v=20260328c" defer></script>
 </body>
 </html>
 

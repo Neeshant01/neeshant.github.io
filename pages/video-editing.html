@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="skill-pages.css">
+  <link rel="stylesheet" href="project-app.css?v=20260328c">
 </head>
 <body class="theme-video">
   <header class="site-top">
@@ -72,22 +73,22 @@
     <section id="editing-modules" class="section-block section-anchor">
       <h2>Quick Access</h2>
       <div class="launcher-grid">
-        <a class="launcher-card" href="#project-1">
+        <button class="launcher-card project-choice" type="button" data-project-target="project-1" aria-pressed="true">
           <strong>Project 1</strong>
           <span>Short explainer cut with hook, pacing, and retention focus.</span>
-        </a>
-        <a class="launcher-card" href="#project-2">
+        </button>
+        <button class="launcher-card project-choice" type="button" data-project-target="project-2" aria-pressed="false">
           <strong>Project 2</strong>
           <span>Academic promo edit with title cards and cleaner transitions.</span>
-        </a>
-        <a class="launcher-card" href="#project-3">
+        </button>
+        <button class="launcher-card project-choice" type="button" data-project-target="project-3" aria-pressed="false">
           <strong>Project 3</strong>
           <span>Motion title pack and visual hierarchy workflow.</span>
-        </a>
+        </button>
       </div>
     </section>
 
-    <section id="project-1" class="section-block section-anchor">
+    <section id="project-1" class="section-block section-anchor workspace-panel" data-project-panel="project-1" data-project-title="Project 1: Short Explainer Cut" data-project-summary="A short-form editing case study focused on hook strength, pacing, and audience retention.">
       <h2>Project 1: Short Explainer Cut</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -105,7 +106,7 @@
       </div>
     </section>
 
-    <section id="project-2" class="section-block section-anchor">
+    <section id="project-2" class="section-block section-anchor workspace-panel" data-project-panel="project-2" data-project-title="Project 2: Academic Promo Edit" data-project-summary="An academic-style edit using titles, transitions, and balanced pacing." hidden>
       <h2>Project 2: Academic Promo Edit</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -123,7 +124,7 @@
       </div>
     </section>
 
-    <section id="project-3" class="section-block section-anchor">
+    <section id="project-3" class="section-block section-anchor workspace-panel" data-project-panel="project-3" data-project-title="Project 3: Motion Title Pack" data-project-summary="Reusable motion-title ideas for stronger visual hierarchy across edits." hidden>
       <h2>Project 3: Motion Title Pack</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -162,6 +163,7 @@
       </div>
     </footer>
   </main>
+  <script src="project-switcher.js?v=20260328c" defer></script>
 </body>
 </html>
 

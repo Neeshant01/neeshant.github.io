@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="skill-pages.css">
+  <link rel="stylesheet" href="project-app.css?v=20260328c">
 </head>
 <body class="theme-content">
   <header class="site-top">
@@ -72,22 +73,22 @@
     <section id="content-modules" class="section-block section-anchor">
       <h2>Choose Content Module</h2>
       <div class="launcher-grid">
-        <a class="launcher-card" href="#module-1">
+        <button class="launcher-card project-choice" type="button" data-project-target="module-1" aria-pressed="true">
           <strong>Section 1</strong>
           <span>Topic research and idea selection workflow.</span>
-        </a>
-        <a class="launcher-card" href="#module-2">
+        </button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-2" aria-pressed="false">
           <strong>Section 2</strong>
           <span>Hook writing and message structure system.</span>
-        </a>
-        <a class="launcher-card" href="#module-3">
+        </button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-3" aria-pressed="false">
           <strong>Section 3</strong>
           <span>Publishing notes, iteration, and improvement loop.</span>
-        </a>
+        </button>
       </div>
     </section>
 
-    <section id="module-1" class="section-block section-anchor">
+    <section id="module-1" class="section-block section-anchor workspace-panel" data-project-panel="module-1" data-project-title="Section 1: Topic research and idea selection" data-project-summary="How topic selection becomes easier when research and filtering happen before writing.">
       <h2>Section 1: Topic Research</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -105,7 +106,7 @@
       </div>
     </section>
 
-    <section id="module-2" class="section-block section-anchor">
+    <section id="module-2" class="section-block section-anchor workspace-panel" data-project-panel="module-2" data-project-title="Section 2: Hook writing and message structure" data-project-summary="Opening lines, body structure, and closing beats for cleaner content planning." hidden>
       <h2>Section 2: Hook and Script Structure</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -123,7 +124,7 @@
       </div>
     </section>
 
-    <section id="module-3" class="section-block section-anchor">
+    <section id="module-3" class="section-block section-anchor workspace-panel" data-project-panel="module-3" data-project-title="Section 3: Review and improvement" data-project-summary="Iteration habits that keep future content sharper and more reusable." hidden>
       <h2>Section 3: Review and Improvement</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -162,6 +163,7 @@
       </div>
     </footer>
   </main>
+  <script src="project-switcher.js?v=20260328c" defer></script>
 </body>
 </html>
 

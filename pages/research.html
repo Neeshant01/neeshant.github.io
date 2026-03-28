@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="skill-pages.css">
+  <link rel="stylesheet" href="project-app.css?v=20260328c">
 </head>
 <body class="theme-research">
   <header class="site-top">
@@ -72,9 +73,9 @@
     <section class="section-block">
       <h2>Quick Access</h2>
       <div class="launcher-grid">
-        <a class="launcher-card" href="#module-1"><strong>Section 1</strong><span>Research projects and examples</span></a>
-        <a class="launcher-card" href="#module-2"><strong>Section 2</strong><span>Research methodology</span></a>
-        <a class="launcher-card" href="#module-3"><strong>Section 3</strong><span>Tips and output workflow</span></a>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-1" aria-pressed="true"><strong>Section 1</strong><span>Research projects and examples</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-2" aria-pressed="false"><strong>Section 2</strong><span>Research methodology</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-3" aria-pressed="false"><strong>Section 3</strong><span>Tips and output workflow</span></button>
       </div>
     </section>
 
@@ -93,7 +94,7 @@
       </div>
     </div>
 
-    <section id="module-1" class="section-block section-anchor">
+    <section id="module-1" class="section-block section-anchor workspace-panel" data-project-panel="module-1" data-project-title="Section 1: Research projects and examples" data-project-summary="Examples of using research for cyber-awareness topics, scripts, and study planning.">
       <h2>Research Projects</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -123,7 +124,7 @@
       </div>
     </section>
 
-    <section id="module-2" class="section-block section-anchor">
+    <section id="module-2" class="section-block section-anchor workspace-panel" data-project-panel="module-2" data-project-title="Section 2: Research methodology" data-project-summary="The note-taking and source-comparison steps I use before turning research into output." hidden>
       <h2>Research Methodology</h2>
       <ol class="timeline-list">
         <li>Start with a clear question instead of searching randomly.</li>
@@ -133,7 +134,7 @@
       </ol>
     </section>
 
-    <section id="module-3" class="section-block section-anchor">
+    <section id="module-3" class="section-block section-anchor workspace-panel" data-project-panel="module-3" data-project-title="Section 3: Tips and output workflow" data-project-summary="Findings, achievements, and resource habits that keep research practical." hidden>
       <h2>Findings and Conclusions</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -190,6 +191,7 @@
       </div>
     </footer>
   </main>
+  <script src="project-switcher.js?v=20260328c" defer></script>
 </body>
 </html>
 

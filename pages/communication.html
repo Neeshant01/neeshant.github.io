@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="skill-pages.css">
+  <link rel="stylesheet" href="project-app.css?v=20260328c">
 </head>
 <body class="theme-communication">
   <header class="site-top">
@@ -72,9 +73,9 @@
     <section class="section-block">
       <h2>Quick Access</h2>
       <div class="launcher-grid">
-        <a class="launcher-card" href="#module-1"><strong>Section 1</strong><span>Key communication projects</span></a>
-        <a class="launcher-card" href="#module-2"><strong>Section 2</strong><span>Communication styles and approach</span></a>
-        <a class="launcher-card" href="#module-3"><strong>Section 3</strong><span>Tips and practical resources</span></a>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-1" aria-pressed="true"><strong>Section 1</strong><span>Key communication projects</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-2" aria-pressed="false"><strong>Section 2</strong><span>Communication styles and approach</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-3" aria-pressed="false"><strong>Section 3</strong><span>Tips and practical resources</span></button>
       </div>
     </section>
 
@@ -93,7 +94,7 @@
       </div>
     </div>
 
-    <section id="module-1" class="section-block section-anchor">
+    <section id="module-1" class="section-block section-anchor workspace-panel" data-project-panel="module-1" data-project-title="Section 1: Key communication projects" data-project-summary="Examples of how communication improves portfolio writing, scripts, and study explanations.">
       <h2>Key Projects</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -123,7 +124,7 @@
       </div>
     </section>
 
-    <section id="module-2" class="section-block section-anchor">
+    <section id="module-2" class="section-block section-anchor workspace-panel" data-project-panel="module-2" data-project-title="Section 2: Communication styles and approach" data-project-summary="Different ways I adjust tone, clarity, and structure for different audiences." hidden>
       <h2>Communication Styles I Use</h2>
       <div class="card-grid">
         <article class="info-card">
@@ -141,7 +142,7 @@
       </div>
     </section>
 
-    <section id="module-3" class="section-block section-anchor">
+    <section id="module-3" class="section-block section-anchor workspace-panel" data-project-panel="module-3" data-project-title="Section 3: Tips and practical resources" data-project-summary="Key achievements, communication habits, and simple resources that improve clarity." hidden>
       <h2>Key Achievements</h2>
       <ul class="bullet-list">
         <li>Created clearer portfolio descriptions so each skill page feels professional instead of generic.</li>
@@ -180,6 +181,7 @@
       </div>
     </footer>
   </main>
+  <script src="project-switcher.js?v=20260328c" defer></script>
 </body>
 </html>
 

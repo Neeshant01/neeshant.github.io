@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="skill-pages.css">
+  <link rel="stylesheet" href="project-app.css?v=20260328c">
 </head>
 <body class="theme-image">
   <header class="site-top">
@@ -72,13 +73,13 @@
     <section class="section-block">
       <h2>Quick Access</h2>
       <div class="launcher-grid">
-        <a class="launcher-card" href="#module-1"><strong>Section 1</strong><span>Editing gallery and variations</span></a>
-        <a class="launcher-card" href="#module-2"><strong>Section 2</strong><span>Before and after comparisons</span></a>
-        <a class="launcher-card" href="#module-3"><strong>Section 3</strong><span>Tips and export workflow</span></a>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-1" aria-pressed="true"><strong>Section 1</strong><span>Editing gallery and variations</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-2" aria-pressed="false"><strong>Section 2</strong><span>Before and after comparisons</span></button>
+        <button class="launcher-card project-choice" type="button" data-project-target="module-3" aria-pressed="false"><strong>Section 3</strong><span>Tips and export workflow</span></button>
       </div>
     </section>
 
-    <section id="module-1" class="section-block section-anchor">
+    <section id="module-1" class="section-block section-anchor workspace-panel" data-project-panel="module-1" data-project-title="Section 1: Editing gallery and variations" data-project-summary="A portrait editing gallery showing original, warm, monochrome, and cinematic variations.">
       <h2>Editing Gallery</h2>
       <div class="gallery-grid">
         <article class="media-card">
@@ -131,7 +132,7 @@
       </div>
     </section>
 
-    <section id="module-2" class="section-block section-anchor">
+    <section id="module-2" class="section-block section-anchor workspace-panel" data-project-panel="module-2" data-project-title="Section 2: Before and after comparisons" data-project-summary="Direct before-and-after comparisons showing how edits change tone, contrast, and mood." hidden>
       <h2>Before and After Comparisons</h2>
       <div class="comparison-grid">
         <article class="media-card">
@@ -175,7 +176,7 @@
       </div>
     </section>
 
-    <section id="module-3" class="section-block section-anchor">
+    <section id="module-3" class="section-block section-anchor workspace-panel" data-project-panel="module-3" data-project-title="Section 3: Tips and export workflow" data-project-summary="Editing tips, export decisions, and workflow notes for web-ready images." hidden>
       <h2>Key Projects and Achievements</h2>
       <ul class="bullet-list">
         <li>Prepared a web-ready profile image for the main portfolio so the site has a real personal identity.</li>
@@ -214,6 +215,7 @@
       </div>
     </footer>
   </main>
+  <script src="project-switcher.js?v=20260328c" defer></script>
 </body>
 </html>
 
