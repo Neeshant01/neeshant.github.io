@@ -1,9 +1,9 @@
 const typedText = document.getElementById("typed-text");
 const roles = [
   "Student Developer_",
-  "Web Development Learner_",
-  "Project-Based Builder_",
-  "Frontend Practice_"
+  "Building Web Projects_",
+  "Learning by Doing_",
+  "Based in Patna_"
 ];
 
 let roleIndex = 0;

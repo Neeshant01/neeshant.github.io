@@ -54,7 +54,7 @@
         <div class="choice-grid">
           <button class="choice-card" id="option-one-button" type="button">
             <strong>Option 1</strong>
-            <span>Custom amount builder with generated QR and payment-app link.</span>
+            <span>Custom amount builder with manual UPI input and generated QR.</span>
           </button>
           <button class="choice-card" id="option-two-button" type="button">
             <strong>Option 2</strong>
@@ -87,7 +87,7 @@
         <div class="media-copy">
           <h3>Generate a custom payment QR</h3>
           <p>
-            Enter the amount, review or paste the payment ID if needed, and generate the QR only when you are ready.
+            Enter the amount, add your UPI ID, and generate the QR only when you are ready.
           </p>
         </div>
 
@@ -97,7 +97,7 @@
             <input id="amount-input" class="field-input" type="number" min="1" step="1" placeholder="10">
 
             <label class="field-label top-gap" for="upi-input">UPI ID or UPI link</label>
-            <input id="upi-input" class="field-input" type="text" placeholder="Paste your UPI ID only if auto profile is not detected">
+            <input id="upi-input" class="field-input" type="text" placeholder="Enter your UPI ID or full UPI payment link">
 
             <label class="field-label top-gap" for="note-input">Payment note</label>
             <input id="note-input" class="field-input" type="text" value="Support for Nishant Kumar portfolio">
@@ -106,7 +106,7 @@
               <button id="generate-button" class="button button-primary" type="button">Generate QR</button>
               <a id="pay-link" class="button button-secondary" href="#" target="_blank" rel="noreferrer">Open Payment App</a>
             </div>
-            <p id="donate-status" class="footer-note">Choose Option 1 to start. The QR will appear only after generation.</p>
+            <p id="donate-status" class="footer-note">Choose Option 1 to start. Enter your UPI details and the QR will appear only after generation.</p>
           </div>
 
           <div id="generated-qr-wrap" class="generated-qr-wrap is-hidden">
@@ -133,11 +133,8 @@
       </article>
     </section>
 
-    <img id="source-qr-image" src="../assets/donate-qr.jpeg" alt="" hidden>
-    <canvas id="qr-canvas" hidden></canvas>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="donate.js" defer></script>
 </body>
