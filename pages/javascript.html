@@ -1,9 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript Game Lab | Nishant Kumar</title>
+  <meta
+    name="description"
+    content="JavaScript App Lab by Nishant Kumar with interactive games covering DOM manipulation, timers, state management, logic, and local storage."
+  >
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="JavaScript App Lab | Nishant Kumar">
+  <meta property="og:description" content="JavaScript App Lab by Nishant Kumar with interactive games covering DOM manipulation, timers, state management, logic, and local storage.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neeshant01.github.io/pages/javascript.html">
+  <meta property="og:image" content="https://neeshant01.github.io/assets/profile-web.jpg">
+  <link rel="canonical" href="https://neeshant01.github.io/pages/javascript.html">
+  <title>JavaScript App Lab | Nishant Kumar</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -169,6 +181,26 @@
       transition: width 0.2s ease;
     }
     .wide-input { width: 100%; }
+    .lab-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .summary-card {
+      padding: 1rem;
+      border-radius: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .summary-card strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+    }
+    .memory-status {
+      margin-top: 0.75rem;
+    }
     @media (max-width: 760px) {
       .memory-board { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .ttt-board { grid-template-columns: repeat(3, 1fr); }
@@ -182,7 +214,7 @@
     <header class="topbar">
       <div>
         <p><a href="../index.html">Portfolio</a> &gt; <a href="../index.html#skills">Skill Pages</a> &gt; JavaScript</p>
-        <h1>JavaScript Interactive Game Lab</h1>
+        <h1>JavaScript App Lab</h1>
       </div>
       <nav>
         <a href="../index.html">Main Portfolio</a>
@@ -191,7 +223,7 @@
     </header>
 
     <section class="hero">
-      <h2>Five browser games on one page</h2>
+      <h2>Five browser games inside one app-style workspace</h2>
       <p>
         This page demonstrates event listeners, DOM updates, random generation, local storage, timers, arrays, nested loops,
         conditionals, state management, and game logic through five interactive JavaScript projects.
@@ -203,6 +235,25 @@
         <a class="launcher-card" href="#game-4"><strong>Project 4</strong><span>AI Tic Tac Toe</span></a>
         <a class="launcher-card" href="#game-5"><strong>Project 5</strong><span>Typing Speed</span></a>
       </div>
+    </section>
+
+    <section class="lab-summary" aria-label="JavaScript overview">
+      <article class="summary-card">
+        <strong>5 Playable Demos</strong>
+        <p>Each module demonstrates a different JavaScript pattern through direct interaction.</p>
+      </article>
+      <article class="summary-card">
+        <strong>Core Focus</strong>
+        <p>Logic, DOM updates, timers, state transitions, and local storage persistence.</p>
+      </article>
+      <article class="summary-card">
+        <strong>App Feel</strong>
+        <p>Launchers, scoreboards, progress views, and live feedback create a cleaner mini-app experience.</p>
+      </article>
+      <article class="summary-card">
+        <strong>Best Proof</strong>
+        <p>This page shows the move from static layout work into interactive browser behavior.</p>
+      </article>
     </section>
 
     <main class="grid">
@@ -259,6 +310,7 @@
           <button id="memory-start">Start Memory Game</button>
         </div>
         <p id="memory-stats">Moves: 0 | Matches: 0 | Remaining: 0 | Time: 0s</p>
+        <p id="memory-status" class="memory-status muted">Press start to shuffle the board and begin matching.</p>
         <div id="memory-board" class="memory-board"></div>
       </article>
 
@@ -439,7 +491,8 @@
     const memoryStart = document.getElementById("memory-start");
     const memoryDifficulty = document.getElementById("memory-difficulty");
     const memoryStats = document.getElementById("memory-stats");
-    const memoryIcons = ["🍀", "🚀", "🎯", "📘", "💡", "⚙️", "🧠", "🌟"];
+    const memoryStatus = document.getElementById("memory-status");
+    const memoryIcons = ["ðŸ€", "ðŸš€", "ðŸŽ¯", "ðŸ“˜", "ðŸ’¡", "âš™ï¸", "ðŸ§ ", "ðŸŒŸ"];
     let memoryState = { tiles: [], first: null, second: null, lock: false, matches: 0, moves: 0, seconds: 0, timer: null };
 
     function updateMemoryStats() {
@@ -465,6 +518,7 @@
         .sort(() => Math.random() - 0.5);
       clearInterval(memoryState.timer);
       memoryState = { tiles: shuffled, first: null, second: null, lock: false, matches: 0, moves: 0, seconds: 0, timer: null };
+      memoryStatus.textContent = "Game started. Reveal two tiles and look for a match.";
       memoryState.timer = setInterval(() => {
         memoryState.seconds += 1;
         updateMemoryStats();
@@ -480,6 +534,7 @@
       tile.revealed = true;
       if (!memoryState.first) {
         memoryState.first = tile;
+        memoryStatus.textContent = "First tile revealed. Pick one more tile to test the match.";
       } else {
         memoryState.second = tile;
         memoryState.moves += 1;
@@ -493,8 +548,12 @@
           memoryState.lock = false;
           if (memoryState.tiles.every((item) => item.matched)) {
             clearInterval(memoryState.timer);
+            memoryStatus.textContent = "All pairs matched. Memory game complete.";
+          } else {
+            memoryStatus.textContent = "Match found. Keep going.";
           }
         } else {
+          memoryStatus.textContent = "Not a match. The tiles will flip back.";
           setTimeout(() => {
             memoryState.first.revealed = false;
             memoryState.second.revealed = false;
@@ -687,3 +746,4 @@
   </script>
 </body>
 </html>
+

@@ -1,5 +1,6 @@
 const amountInput = document.getElementById("amount-input");
 const upiInput = document.getElementById("upi-input");
+const noteInput = document.getElementById("note-input");
 const generateButton = document.getElementById("generate-button");
 const payLink = document.getElementById("pay-link");
 const statusText = document.getElementById("donate-status");
@@ -26,6 +27,7 @@ function showPanel(panelName) {
   optionTwoPanel?.classList.toggle("is-hidden", showOptionOne);
   optionOneButton?.classList.toggle("is-active", showOptionOne);
   optionTwoButton?.classList.toggle("is-active", !showOptionOne);
+
   if (!showOptionOne) {
     qrWrap?.classList.add("is-hidden");
   }
@@ -33,7 +35,7 @@ function showPanel(panelName) {
 
 function decodeSourceQr() {
   if (!sourceImage || !qrCanvas || typeof jsQR === "undefined") {
-    setStatus("QR decoder not available. You can still paste your UPI ID manually.");
+    setStatus("Saved payment profile not available. You can still paste your UPI ID manually.");
     return;
   }
 
@@ -47,14 +49,18 @@ function decodeSourceQr() {
 
   if (decoded && decoded.data) {
     detectedUpiLink = decoded.data.trim();
-    setStatus("Base payment data is ready. Enter an amount and generate the QR when needed.");
+    if (upiInput && !upiInput.value.trim()) {
+      upiInput.value = detectedUpiLink;
+    }
+    setStatus("Saved payment profile loaded. Enter an amount and generate the QR when needed.");
   } else {
-    setStatus("Could not auto-detect payment data. Paste your UPI ID manually in Option 1.");
+    setStatus("Could not auto-detect the payment profile. Paste your UPI ID manually in Option 1.");
   }
 }
 
 function buildPaymentLink(amount) {
   const manualValue = upiInput?.value.trim();
+  const noteValue = noteInput?.value.trim();
   let base = manualValue || detectedUpiLink;
 
   if (!base) {
@@ -68,6 +74,10 @@ function buildPaymentLink(amount) {
   const url = new URL(base);
   url.searchParams.set("am", amount);
   url.searchParams.set("cu", "INR");
+
+  if (noteValue) {
+    url.searchParams.set("tn", noteValue);
+  }
 
   return url.toString();
 }
@@ -100,7 +110,7 @@ function handleGenerate() {
   const paymentLink = buildPaymentLink(amount);
 
   if (!paymentLink) {
-    setStatus("Payment source not ready yet. Paste your UPI ID manually if needed.");
+    setStatus("Payment profile is not ready yet. Paste your UPI ID manually or use Razorpay instead.");
     return;
   }
 
@@ -108,7 +118,7 @@ function handleGenerate() {
   if (payLink) {
     payLink.href = paymentLink;
   }
-  setStatus(`Custom QR generated for INR ${amount}.`);
+  setStatus(`Custom QR generated for INR ${amount}. You can scan it or open the payment app.`);
 }
 
 optionOneButton?.addEventListener("click", () => {

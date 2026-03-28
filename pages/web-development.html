@@ -1,8 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Interactive Task Management Dashboard by Nishant Kumar with task creation, filters, search, sorting, progress tracking, and local storage."
+  >
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Interactive Task Management Dashboard | Nishant Kumar">
+  <meta property="og:description" content="Interactive Task Management Dashboard by Nishant Kumar with task creation, filters, search, sorting, progress tracking, and local storage.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neeshant01.github.io/pages/web-development.html">
+  <meta property="og:image" content="https://neeshant01.github.io/assets/profile-web.jpg">
+  <link rel="canonical" href="https://neeshant01.github.io/pages/web-development.html">
   <title>Interactive Task Management Dashboard | Nishant Kumar</title>
   <style>
     :root {
@@ -167,6 +179,23 @@
       background: rgba(255,255,255,0.03);
     }
     .small-text { font-size: 0.92rem; color: var(--muted); }
+    .lab-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .summary-card {
+      padding: 1rem;
+      border-radius: 18px;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .summary-card strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+    }
     @media (max-width: 900px) {
       .dashboard { grid-template-columns: 1fr; }
     }
@@ -197,6 +226,25 @@
         <a class="launcher-card" href="#module-add-task"><strong>Add Task</strong><span>Open the form and create new items.</span></a>
         <a class="launcher-card" href="#module-board"><strong>Task Board</strong><span>Filter, search, and manage the live board.</span></a>
       </div>
+    </section>
+
+    <section class="lab-summary" aria-label="Dashboard overview">
+      <article class="summary-card">
+        <strong>Complete CRUD Flow</strong>
+        <p>Add, complete, search, filter, sort, and delete tasks inside one clean dashboard.</p>
+      </article>
+      <article class="summary-card">
+        <strong>Persistent State</strong>
+        <p>Local storage keeps the task list available even after the page is refreshed.</p>
+      </article>
+      <article class="summary-card">
+        <strong>Responsive Layout</strong>
+        <p>The board shifts from split dashboard view to a mobile-friendly stacked layout.</p>
+      </article>
+      <article class="summary-card">
+        <strong>Professional UX</strong>
+        <p>Progress tracker, filters, empty state, and clear action buttons improve usability.</p>
+      </article>
     </section>
 
     <section id="module-overview" class="stats-grid section-anchor">
@@ -245,6 +293,7 @@
           </select>
 
           <button type="submit">Add Task</button>
+          <p id="task-status" class="small-text">Create a task to start the dashboard workflow.</p>
         </form>
       </aside>
 
@@ -305,6 +354,7 @@
     const progressText = document.getElementById("progress-text");
     const summaryText = document.getElementById("summary-text");
     const filterText = document.getElementById("filter-text");
+    const taskStatus = document.getElementById("task-status");
 
     let tasks = loadTasks();
 
@@ -402,6 +452,7 @@
       tasks.push(newTask);
       saveTasks();
       form.reset();
+      taskStatus.textContent = `Task added: ${newTask.title}`;
       renderTasks();
     });
 
@@ -414,8 +465,12 @@
 
       if (button.dataset.action === "toggle") {
         task.completed = !task.completed;
+        taskStatus.textContent = task.completed
+          ? `Task completed: ${task.title}`
+          : `Task moved back to pending: ${task.title}`;
       }
       if (button.dataset.action === "delete") {
+        taskStatus.textContent = `Task deleted: ${task.title}`;
         tasks = tasks.filter((item) => item.id !== id);
       }
 
@@ -433,6 +488,7 @@
       statusFilter.value = "all";
       priorityFilter.value = "all";
       sortBy.value = "created";
+      taskStatus.textContent = "Filters cleared. Showing the full dashboard again.";
       renderTasks();
     });
 
@@ -440,3 +496,4 @@
   </script>
 </body>
 </html>
+

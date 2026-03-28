@@ -1,9 +1,9 @@
 const typedText = document.getElementById("typed-text");
 const roles = [
   "Ethical Tech Learner_",
-  "Frontend Builder",
-  "JEE Aspirant",
-  "Future Software Engineer"
+  "App Lab Builder_",
+  "Research Driven Creator_",
+  "Future Software Engineer_"
 ];
 
 let roleIndex = 0;
@@ -23,7 +23,7 @@ function tick() {
 
     if (charIndex === currentRole.length) {
       deleting = true;
-      setTimeout(tick, 1400);
+      setTimeout(tick, 1300);
       return;
     }
   } else {
@@ -36,10 +36,10 @@ function tick() {
     }
   }
 
-  setTimeout(tick, deleting ? 45 : 90);
+  setTimeout(tick, deleting ? 42 : 82);
 }
 
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -50,5 +50,29 @@ const observer = new IntersectionObserver(
   { threshold: 0.18 }
 );
 
-document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
-window.addEventListener("load", () => setTimeout(tick, 350));
+document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+const navLinks = document.querySelectorAll("[data-nav]");
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-current", link.dataset.nav === entry.target.id);
+      });
+    });
+  },
+  {
+    threshold: 0.45,
+    rootMargin: "-20% 0px -35% 0px"
+  }
+);
+
+document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+
+window.addEventListener("load", () => {
+  setTimeout(tick, 320);
+});

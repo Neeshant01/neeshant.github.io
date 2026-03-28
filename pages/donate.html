@@ -1,51 +1,64 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate Options | Nishant Kumar</title>
+  <title>Support My Work | Nishant Kumar</title>
+  <meta
+    name="description"
+    content="Support Nishant Kumar through a simple two-step donate flow with either a custom amount QR or a direct Razorpay route."
+  >
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Support My Work | Nishant Kumar">
+  <meta property="og:description" content="Support Nishant Kumar through a simple two-step donate flow with either a custom amount QR or a direct Razorpay route.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neeshant01.github.io/pages/donate.html">
+  <meta property="og:image" content="https://neeshant01.github.io/assets/profile-web.jpg">
+  <link rel="canonical" href="https://neeshant01.github.io/pages/donate.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="skill-pages.css">
 </head>
-<body class="theme-office">
+<body class="theme-ethical">
   <header class="site-top">
     <div class="page-shell top-inner">
       <a class="brand" href="../index.html">
         <span class="brand-mark">NK</span>
         <span class="brand-copy">
           <strong>Nishant Kumar</strong>
-          <span>Donate Options</span>
+          <span>Support My Work</span>
         </span>
       </a>
       <nav class="top-nav">
         <a href="../index.html">Home</a>
+        <a href="../index.html#projects">Projects</a>
         <a href="../index.html#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="page-shell">
-    <p class="breadcrumb"><a href="../index.html">Portfolio</a> &gt; <a href="../index.html#contact">Contact</a> &gt; Donate</p>
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> &gt; <a href="../index.html#contact">Contact</a> &gt; Support</p>
 
     <section class="hero">
       <div class="hero-card">
-        <span class="eyebrow">Donate</span>
-        <h1>Choose your donation option first, then continue with that method.</h1>
+        <span class="eyebrow">Support Flow</span>
+        <h1>Choose a payment route first, then continue only with that option.</h1>
         <p>
-          This page now starts with a simple choice flow. Pick <span class="mono">Option 1</span> for a custom amount QR,
-          or pick <span class="mono">Option 2</span> for the direct Razorpay route.
+          This page keeps the donation experience clean. Pick <span class="mono">Option 1</span> if you want a custom
+          amount QR. Pick <span class="mono">Option 2</span> if you want to continue directly with Razorpay.
         </p>
 
         <div class="choice-grid">
           <button class="choice-card" id="option-one-button" type="button">
             <strong>Option 1</strong>
-            <span>Custom amount and generated QR flow.</span>
+            <span>Custom amount builder with generated QR and payment-app link.</span>
           </button>
           <button class="choice-card" id="option-two-button" type="button">
             <strong>Option 2</strong>
-            <span>Open the hosted Razorpay payment page directly.</span>
+            <span>Direct hosted Razorpay page for a faster support route.</span>
           </button>
         </div>
       </div>
@@ -53,12 +66,16 @@
       <aside class="panel">
         <div class="panel-grid">
           <div class="stat-box">
-            <strong>Clean Flow</strong>
-            <p>No payment area opens until you choose which route you want to use.</p>
+            <strong>Cleaner Flow</strong>
+            <p>No donation panel opens until you choose which route you want to use.</p>
           </div>
           <div class="mini-box">
-            <span class="pill">Updated</span>
-            <p>The QR panel stays hidden until Option 1 is selected and a custom amount is generated.</p>
+            <span class="pill">Why This Helps</span>
+            <p>It keeps the experience lighter on mobile and avoids showing unnecessary QR content too early.</p>
+          </div>
+          <div class="mini-box">
+            <span class="pill">Support Note</span>
+            <p>Any support helps maintain portfolio projects, app labs, and continuous learning work.</p>
           </div>
         </div>
       </aside>
@@ -68,22 +85,28 @@
       <h2 class="section-anchor">Option 1: Custom Amount QR</h2>
       <article class="media-card">
         <div class="media-copy">
-          <p>Type a custom amount and generate a payment QR only when you need it.</p>
+          <h3>Generate a custom payment QR</h3>
+          <p>
+            Enter the amount, review or paste the payment ID if needed, and generate the QR only when you are ready.
+          </p>
         </div>
 
         <div class="generated-qr-wrap">
           <div class="donate-form-card">
-            <label class="field-label" for="amount-input">Custom Money Amount</label>
+            <label class="field-label" for="amount-input">Amount in INR</label>
             <input id="amount-input" class="field-input" type="number" min="1" step="1" placeholder="10">
 
-            <label class="field-label top-gap" for="upi-input">UPI ID or UPI Link</label>
-            <input id="upi-input" class="field-input" type="text" placeholder="Paste UPI ID if auto detect does not work">
+            <label class="field-label top-gap" for="upi-input">UPI ID or UPI link</label>
+            <input id="upi-input" class="field-input" type="text" placeholder="Paste your UPI ID only if auto profile is not detected">
+
+            <label class="field-label top-gap" for="note-input">Payment note</label>
+            <input id="note-input" class="field-input" type="text" value="Support for Nishant Kumar portfolio">
 
             <div class="button-row">
               <button id="generate-button" class="button button-primary" type="button">Generate QR</button>
               <a id="pay-link" class="button button-secondary" href="#" target="_blank" rel="noreferrer">Open Payment App</a>
             </div>
-            <p id="donate-status" class="footer-note">Choose Option 1 to start. QR will appear only after generation.</p>
+            <p id="donate-status" class="footer-note">Choose Option 1 to start. The QR will appear only after generation.</p>
           </div>
 
           <div id="generated-qr-wrap" class="generated-qr-wrap is-hidden">
@@ -94,13 +117,16 @@
     </section>
 
     <section id="option-two-panel" class="section-block donate-panel-box is-hidden">
-      <h2 class="section-anchor">Option 2: Razorpay</h2>
+      <h2 class="section-anchor">Option 2: Direct Razorpay Route</h2>
       <article class="media-card">
         <div class="media-copy">
-          <h3>Direct Razorpay Route</h3>
-          <p>If you want the faster option, open Razorpay directly and continue the payment there.</p>
+          <h3>Open the hosted payment page</h3>
+          <p>
+            If you prefer the faster route, continue through Razorpay directly and complete the payment there.
+          </p>
           <div class="button-row">
             <a class="button button-primary" href="https://razorpay.me/@Appleofficial01" target="_blank" rel="noreferrer">Open Razorpay</a>
+            <a class="button button-secondary" href="../index.html#projects">Back to Projects</a>
           </div>
           <p class="footer-note">Razorpay link: <span class="mono">razorpay.me/@Appleofficial01</span></p>
         </div>
@@ -116,3 +142,4 @@
   <script src="donate.js" defer></script>
 </body>
 </html>
+

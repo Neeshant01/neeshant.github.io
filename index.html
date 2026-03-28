@@ -3,11 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nishant Kumar | Portfolio & Skill Pages</title>
+  <title>Nishant Kumar | Ethical Tech Portfolio and App Labs</title>
   <meta
     name="description"
-    content="Nishant Kumar portfolio with app-style skill pages for HTML, CSS, JavaScript, web development, video editing, image editing, MS Office, research, communication, NSTSE, content systems, and ethical tech."
+    content="Nishant Kumar portfolio featuring ethical tech, frontend projects, app-style skill pages, research workflows, creative media work, and interactive demos."
   >
+  <meta
+    name="keywords"
+    content="Nishant Kumar, ethical tech, portfolio, HTML, CSS, JavaScript, web development, app labs, research, image editing"
+  >
+  <meta name="author" content="Nishant Kumar">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#07111f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nishant Kumar | Ethical Tech Portfolio and App Labs">
+  <meta
+    property="og:description"
+    content="Explore a multi-page portfolio with app-style demos, ethical tech principles, interactive project labs, and professional skill showcases."
+  >
+  <meta property="og:url" content="https://neeshant01.github.io/">
+  <meta property="og:image" content="https://neeshant01.github.io/assets/profile-web.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nishant Kumar | Ethical Tech Portfolio and App Labs">
+  <meta
+    name="twitter:description"
+    content="App-style portfolio for web development, research, creative work, and ethical technology learning."
+  >
+  <meta name="twitter:image" content="https://neeshant01.github.io/assets/profile-web.jpg">
+  <link rel="canonical" href="https://neeshant01.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -23,17 +47,20 @@
         <span class="brand-mark">NK</span>
         <span class="brand-text">
           <strong>Nishant Kumar</strong>
-          <span>Portfolio + Skill Showcase</span>
+          <span>Ethical Tech Portfolio</span>
         </span>
       </a>
 
       <nav class="nav-links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#skills">Skill Pages</a>
-        <a href="#projects">Projects</a>
-        <a href="#highlights">Highlights</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#capabilities" data-nav="capabilities">What I Do</a>
+        <a href="#skills" data-nav="skills">Skill Pages</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#workflow" data-nav="workflow">Workflow</a>
+        <a href="#contact" data-nav="contact">Contact</a>
       </nav>
+
+      <a class="button button-secondary header-cta" href="#contact">Let&apos;s Connect</a>
     </div>
   </header>
 
@@ -42,53 +69,77 @@
       <div class="shell hero-layout">
         <div class="hero-copy reveal">
           <span class="eyebrow">Patna, Bihar, India</span>
-          <h1>Nishant Kumar</h1>
+          <h1>Building disciplined digital work with an ethical, app-first mindset.</h1>
           <div class="type-line" aria-live="polite">
             <span id="typed-text"></span>
             <span class="cursor">|</span>
           </div>
-          <p>
-            I am a Class 11 student, JEE aspirant, and ethical tech learner who enjoys building websites, creating explainer content,
-            improving digital presentation, and turning curiosity into practical projects.
+          <p class="lead">
+            I am Nishant Kumar, a Class 11 student and future software engineer focused on web development, research,
+            structured communication, and clean digital presentation.
           </p>
-          <p class="hero-quote">"Break systems in the lab, secure them in production."</p>
+          <p class="hero-quote"><span class="prompt">&gt;_</span> Break systems in the lab, secure them in production.</p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#skills">Explore Skill Pages</a>
-            <a class="button button-secondary" href="#projects">Open App Labs</a>
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="#contact">Get In Touch</a>
+          </div>
+
+          <div class="proof-strip" aria-label="Portfolio highlights">
+            <article class="proof-item">
+              <strong>12+</strong>
+              <span>Linked skill pages</span>
+            </article>
+            <article class="proof-item">
+              <strong>5</strong>
+              <span>Interactive JS mini apps</span>
+            </article>
+            <article class="proof-item">
+              <strong>NSTSE</strong>
+              <span>Academic milestone</span>
+            </article>
+            <article class="proof-item">
+              <strong>PCM</strong>
+              <span>Strong science foundation</span>
+            </article>
           </div>
         </div>
 
         <aside class="hero-visual reveal">
           <div class="profile-card">
             <div class="profile-frame">
-              <img src="assets/profile-web.jpg" alt="Portrait of Nishant Kumar">
+              <img
+                src="assets/profile-web.jpg"
+                alt="Portrait of Nishant Kumar"
+                fetchpriority="high"
+              >
             </div>
             <div class="profile-meta">
-              <span class="meta-label">Profile</span>
-              <h2>Builder, creator, and disciplined learner.</h2>
+              <span class="meta-label">Profile Snapshot</span>
+              <h2>Builder, researcher, and calm problem solver.</h2>
               <p>
-                Focused on ethical technology, web development, research-driven content, and long-term growth in software engineering.
+                Focused on ethical technology, frontend foundations, creative workflow systems, and long-term growth
+                through consistent practice.
               </p>
+              <div class="status-cluster">
+                <span>Ethical Tech</span>
+                <span>App Labs</span>
+                <span>Research Driven</span>
+              </div>
             </div>
           </div>
 
-          <div class="stats-grid">
-            <div class="stat-card">
-              <strong>12+</strong>
-              <span>Professional skill pages</span>
+          <div class="terminal-card" aria-label="Current focus">
+            <div class="terminal-topbar">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-            <div class="stat-card">
-              <strong>NSTSE</strong>
-              <span>Academic achievement</span>
-            </div>
-            <div class="stat-card">
-              <strong>App Labs</strong>
-              <span>Project launchers and interactive pages</span>
-            </div>
-            <div class="stat-card">
-              <strong>PCM</strong>
-              <span>Strong academic foundation</span>
+            <div class="terminal-body">
+              <p><span class="prompt">&gt;_</span> status: building pro-level portfolio system</p>
+              <p><span class="prompt">&gt;_</span> focus: web apps, research, communication, visuals</p>
+              <p><span class="prompt">&gt;_</span> current-track: html + css + javascript + ethical tech</p>
+              <p><span class="prompt">&gt;_</span> long-term goal: software engineering</p>
             </div>
           </div>
         </aside>
@@ -100,54 +151,94 @@
         <div class="section-heading reveal">
           <div>
             <span class="eyebrow">About Me</span>
-            <h2>Focused on academics, technology, and creative growth.</h2>
+            <h2>A student portfolio designed like a personal product, not just a profile page.</h2>
           </div>
           <p>
-            This website combines your main portfolio with separate skill pages so each strength has its own professional presentation.
+            This site combines identity, proof of work, interactive demos, and skill-specific case pages into one
+            cleaner system that feels closer to an app than a static resume.
           </p>
         </div>
 
         <div class="about-layout">
           <article class="content-card reveal">
+            <h3>What drives the work</h3>
             <p>
-              Hello! I am Nishant Kumar, a dedicated Class 11 student with a strong foundation in Physics, Chemistry, and Maths.
-              I am preparing for JEE while growing my skills in web development, content creation, research, and digital creativity.
+              I am building toward software engineering through disciplined study, practical experiments, and repeated
+              project work. My approach combines JEE preparation, web fundamentals, and creative execution in a way that
+              keeps both technical clarity and presentation quality strong.
             </p>
             <p class="top-gap">
-              I have achieved success in NSTSE, qualified in the Bharat Ko Jano Quiz, Magad Prant, and continue building a future
-              centered around software engineering, ethical learning, and disciplined improvement.
+              I have qualified in NSTSE, achieved success in the Bharat Ko Jano Quiz, and continue improving across
+              HTML, CSS, JavaScript, research, content planning, and digital media workflows.
             </p>
 
             <div class="info-list">
               <div class="info-row">
                 <strong>Career Goal</strong>
-                <span>Software Engineer with a strong technical and creative foundation</span>
+                <span>Software engineer with strong frontend, product-thinking, and communication skills.</span>
               </div>
               <div class="info-row">
                 <strong>Current Focus</strong>
-                <span>JEE preparation, app-style websites, editing, content systems, and practical skill building</span>
+                <span>App-style web projects, academic growth, research systems, and visual polish.</span>
               </div>
               <div class="info-row">
-                <strong>Approach</strong>
-                <span>Responsible technology use, continuous learning, and meaningful digital work</span>
+                <strong>Work Style</strong>
+                <span>Ethical, structured, iterative, and focused on real improvement instead of random output.</span>
               </div>
             </div>
           </article>
 
           <div class="stack-column reveal">
-            <div class="mini-panel">
-              <h3>Academic Strength</h3>
-              <p>Strong involvement in science and mathematics with a disciplined study mindset.</p>
-            </div>
-            <div class="mini-panel">
-              <h3>Creative Strength</h3>
-              <p>Comfortable with video editing, image editing, content planning, and visually presenting ideas online.</p>
-            </div>
-            <div class="mini-panel">
-              <h3>Technical Strength</h3>
-              <p>Learning HTML, CSS, JavaScript, and complete web development through hands-on practice.</p>
-            </div>
+            <article class="mini-panel">
+              <h3>Academic Discipline</h3>
+              <p>PCM preparation strengthens analytical thinking, consistency, and long-range focus.</p>
+            </article>
+            <article class="mini-panel">
+              <h3>Technical Growth</h3>
+              <p>Frontend projects, dashboards, and game labs help turn concepts into working interfaces.</p>
+            </article>
+            <article class="mini-panel">
+              <h3>Creative Presentation</h3>
+              <p>Editing, layout, and visual hierarchy help the work feel sharper, more credible, and easier to scan.</p>
+            </article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">What I Do</span>
+            <h2>Four capability tracks that shape the whole portfolio.</h2>
+          </div>
+          <p>
+            A pro website needs more than skill names. It should show how those skills combine into useful outcomes.
+          </p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card reveal">
+            <span class="capability-icon mono">&lt;/&gt;</span>
+            <h3>Frontend Foundations</h3>
+            <p>I build semantic layouts, responsive sections, and interactive interfaces with HTML, CSS, and JavaScript.</p>
+          </article>
+          <article class="capability-card reveal">
+            <span class="capability-icon mono">APP</span>
+            <h3>App-Style Projects</h3>
+            <p>Project pages are designed like mini products with launchers, modules, and focused workspaces.</p>
+          </article>
+          <article class="capability-card reveal">
+            <span class="capability-icon mono">R&amp;D</span>
+            <h3>Research and Clarity</h3>
+            <p>I turn rough ideas into structured notes, scripts, workflows, and well-explained project pages.</p>
+          </article>
+          <article class="capability-card reveal">
+            <span class="capability-icon mono">VIS</span>
+            <h3>Creative Presentation</h3>
+            <p>Editing, layout, and visual hierarchy help the work feel sharper, more credible, and easier to scan.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -157,10 +248,11 @@
         <div class="section-heading reveal">
           <div>
             <span class="eyebrow">Skill Pages</span>
-            <h2>Every major skill now has its own professional page.</h2>
+            <h2>Every major skill has its own dedicated page with projects, methods, and proof.</h2>
           </div>
           <p>
-            Click any card below to open the dedicated page. Each one is linked and designed as part of the same portfolio system.
+            Instead of placing everything on one homepage, each area is broken into focused modules so the visitor can
+            explore the work in depth.
           </p>
         </div>
 
@@ -168,114 +260,81 @@
           <a class="skill-card reveal" href="pages/html.html">
             <span class="skill-tag">Frontend</span>
             <h3>HTML</h3>
-            <p>Semantic structure, clean layouts, and page organization for modern websites.</p>
-            <span class="skill-button">Open HTML Page</span>
+            <p>Semantic structure, accessibility, SEO-aware markup, forms, tables, and full document architecture.</p>
+            <span class="skill-button">Open HTML Lab</span>
           </a>
           <a class="skill-card reveal" href="pages/css.html">
             <span class="skill-tag">Frontend</span>
             <h3>CSS</h3>
-            <p>Responsive design, visual polish, sections, buttons, and complete styling systems.</p>
-            <span class="skill-button">Open CSS Page</span>
+            <p>Responsive design systems, 3D transforms, grid layouts, hover states, and polished interaction design.</p>
+            <span class="skill-button">Open CSS Lab</span>
           </a>
           <a class="skill-card reveal" href="pages/javascript.html">
             <span class="skill-tag">Frontend</span>
             <h3>JavaScript</h3>
-            <p>Interactive behavior, UI motion, and dynamic features that make websites feel alive.</p>
-            <span class="skill-button">Open JavaScript Page</span>
+            <p>Interactive game logic, local storage, timers, DOM manipulation, and app-like user feedback.</p>
+            <span class="skill-button">Open JS Lab</span>
           </a>
           <a class="skill-card reveal" href="pages/web-development.html">
             <span class="skill-tag">Build</span>
             <h3>Web Development</h3>
-            <p>Combining design, code, usability, and content into complete web experiences.</p>
-            <span class="skill-button">Open Web Dev Page</span>
+            <p>Full project assembly across layout, styling, interaction, state management, and deployment thinking.</p>
+            <span class="skill-button">Open Web App</span>
           </a>
           <a class="skill-card reveal" href="pages/video-editing.html">
             <span class="skill-tag">Media</span>
             <h3>Video Editing</h3>
-            <p>Editing workflow, visual pacing, scene structure, and polished creative presentation.</p>
+            <p>Scene pacing, titles, rhythm, short-form structure, and studio-style workflow planning.</p>
             <span class="skill-button">Open Editing Studio</span>
           </a>
           <a class="skill-card reveal" href="pages/image-editing.html">
             <span class="skill-tag">Media</span>
             <h3>Image Editing</h3>
-            <p>Profile visuals, clean presentation, and photo-based creative work using your image.</p>
-            <span class="skill-button">Open Image Editing Page</span>
+            <p>Portrait grading, contrast control, export workflow, and brand-supporting visual presentation.</p>
+            <span class="skill-button">Open Image Lab</span>
           </a>
           <a class="skill-card reveal" href="pages/ms-office.html">
             <span class="skill-tag">Productivity</span>
             <h3>MS Office</h3>
-            <p>Advanced Word, Excel, PowerPoint, formatting, and structured document work.</p>
-            <span class="skill-button">Open MS Office Page</span>
+            <p>Word, Excel, and PowerPoint used as a productivity system for notes, tracking, and presentations.</p>
+            <span class="skill-button">Open Office Stack</span>
           </a>
           <a class="skill-card reveal" href="pages/youtube-content.html">
-            <span class="skill-tag">Creator</span>
-            <h3>Content Systems</h3>
-            <p>Planning scripts, content structure, messaging, and idea development for digital projects.</p>
-            <span class="skill-button">Open Content Page</span>
+            <span class="skill-tag">Strategy</span>
+            <h3>Content Strategy Lab</h3>
+            <p>Idea selection, scripting, structure, clarity, and topic planning without relying on platform-first links.</p>
+            <span class="skill-button">Open Content Lab</span>
           </a>
           <a class="skill-card reveal" href="pages/problem-solving.html">
             <span class="skill-tag">Mindset</span>
             <h3>Problem Solving</h3>
-            <p>Learning through challenges, logic, persistence, and steady improvement.</p>
-            <span class="skill-button">Open Problem Solving Page</span>
+            <p>Breaking problems into layers, testing clean solutions, and improving delivery through iteration.</p>
+            <span class="skill-button">Open Logic Page</span>
           </a>
           <a class="skill-card reveal" href="pages/communication.html">
             <span class="skill-tag">Soft Skill</span>
             <h3>Communication</h3>
-            <p>Explaining ideas clearly across study, content, and technical collaboration.</p>
-            <span class="skill-button">Open Communication Page</span>
+            <p>Turning complex ideas into clear writing, explainers, presentations, and understandable user-facing copy.</p>
+            <span class="skill-button">Open Communication</span>
           </a>
           <a class="skill-card reveal" href="pages/research.html">
             <span class="skill-tag">Learning</span>
             <h3>Research</h3>
-            <p>Careful topic exploration, structured learning, and curiosity-driven understanding.</p>
+            <p>Comparing sources, building topic maps, taking notes, and extracting practical conclusions.</p>
             <span class="skill-button">Open Research Page</span>
           </a>
           <a class="skill-card reveal" href="pages/nstse.html">
             <span class="skill-tag">Achievement</span>
             <h3>NSTSE</h3>
-            <p>An academic milestone that reflects discipline in science and mathematics.</p>
-            <span class="skill-button">Open NSTSE Page</span>
+            <p>Competitive learning proof showing discipline in science, mathematics, reasoning, and preparation.</p>
+            <span class="skill-button">Open Achievement Page</span>
           </a>
           <a class="skill-card reveal" href="pages/ethical-tech.html">
             <span class="skill-tag">Values</span>
             <h3>Ethical Tech</h3>
-            <p>Responsible learning, legal practice, and constructive use of technical knowledge.</p>
-            <span class="skill-button">Open Ethical Tech Page</span>
+            <p>Permission-first learning, safe experimentation, cyber awareness, and responsible technical growth.</p>
+            <span class="skill-button">Open Principles</span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="highlights">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <div>
-            <span class="eyebrow">Highlights</span>
-            <h2>Key areas that define the portfolio.</h2>
-          </div>
-          <p>
-            These highlight cards make your strongest work easier to scan and connect back to the detailed pages.
-          </p>
-        </div>
-
-        <div class="highlight-grid">
-          <article class="highlight-card reveal">
-            <h3>Real profile identity</h3>
-            <p>The homepage now uses a real profile image so the portfolio feels personal, credible, and easier to remember.</p>
-          </article>
-          <article class="highlight-card reveal">
-            <h3>App-style navigation added</h3>
-            <p>The portfolio is shifting from simple pages into cleaner lab-style sections where each skill can open focused modules and projects.</p>
-          </article>
-          <article class="highlight-card reveal">
-            <h3>Interactive demo pages added</h3>
-            <p>HTML, CSS, JavaScript, and web development now each include showcase projects that demonstrate practical skill instead of only listing tools.</p>
-          </article>
-          <article class="highlight-card reveal">
-            <h3>Professional productivity section</h3>
-            <p>MS Office, research, and communication pages now show structured examples, workflows, and real use cases.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -285,10 +344,10 @@
         <div class="section-heading reveal">
           <div>
             <span class="eyebrow">Featured Projects</span>
-            <h2>Interactive projects built with different technologies.</h2>
+            <h2>Flagship pages that show real interaction, structure, and creative range.</h2>
           </div>
           <p>
-            These featured cards connect the homepage to the strongest technical and creative project pages in the portfolio.
+            These are the strongest entry points if someone wants to understand how I build, organize, and present work.
           </p>
         </div>
 
@@ -296,83 +355,133 @@
           <a class="project-card reveal" href="pages/html.html">
             <span class="project-icon mono">&lt;/&gt;</span>
             <h3>Pure HTML Portfolio Showcase</h3>
-            <p>Semantic HTML-only portfolio demonstrating forms, tables, SEO structure, accessibility, and content hierarchy.</p>
+            <p>A semantic HTML project proving that a complete, accessible website can work with structure-first thinking.</p>
             <div class="project-stack">
               <span>HTML5</span>
-              <span>SEO</span>
               <span>Accessibility</span>
+              <span>SEO</span>
             </div>
           </a>
           <a class="project-card reveal" href="pages/css.html">
             <span class="project-icon mono">CSS</span>
-            <h3>CSS Visual Experiments</h3>
-            <p>Pure CSS card memory game, button sequence board, snake path animation, cube, and shape-based motion demos.</p>
+            <h3>CSS Interaction Arcade</h3>
+            <p>Pure CSS demos covering memory cards, animated buttons, 3D cube work, and visual motion experiments.</p>
             <div class="project-stack">
-              <span>CSS Grid</span>
-              <span>3D Transform</span>
+              <span>Grid</span>
+              <span>3D</span>
               <span>Animation</span>
             </div>
           </a>
           <a class="project-card reveal" href="pages/javascript.html">
             <span class="project-icon mono">JS</span>
             <h3>JavaScript Game Lab</h3>
-            <p>Interactive games for logic, DOM manipulation, timers, state management, local storage, and player feedback.</p>
+            <p>Five interactive browser games demonstrating event handling, logic, timers, state, and local storage.</p>
             <div class="project-stack">
-              <span>JavaScript</span>
               <span>DOM</span>
-              <span>Local Storage</span>
+              <span>State</span>
+              <span>Storage</span>
             </div>
           </a>
           <a class="project-card reveal" href="pages/web-development.html">
             <span class="project-icon mono">WEB</span>
             <h3>Task Management Dashboard</h3>
-            <p>A complete responsive task manager with filters, categories, progress tracking, sorting, and persistent storage.</p>
+            <p>A full mini web app with filters, search, progress tracking, categories, and responsive layout behavior.</p>
             <div class="project-stack">
               <span>HTML</span>
               <span>CSS</span>
               <span>JavaScript</span>
             </div>
           </a>
-          <a class="project-card reveal" href="pages/video-editing.html">
-            <span class="project-icon mono">VID</span>
-            <h3>Video Editing Studio</h3>
-            <p>A focused editing workspace showing visual pacing, structure, workflow thinking, and media presentation skills.</p>
-            <div class="project-stack">
-              <span>Editing</span>
-              <span>Story Flow</span>
-              <span>Motion</span>
-            </div>
-          </a>
           <a class="project-card reveal" href="pages/image-editing.html">
             <span class="project-icon mono">IMG</span>
             <h3>Portrait Editing Gallery</h3>
-            <p>Original portrait plus warm, monochrome, and cinematic grades showing practical image-editing choices.</p>
+            <p>Real image editing samples showing before-and-after decisions, tonal shifts, and web-ready exports.</p>
             <div class="project-stack">
-              <span>Color Grade</span>
               <span>Portrait</span>
+              <span>Color Grade</span>
               <span>Branding</span>
-            </div>
-          </a>
-          <a class="project-card reveal" href="pages/youtube-content.html">
-            <span class="project-icon mono">CNT</span>
-            <h3>Content Planning System</h3>
-            <p>A content workflow page showing topic strategy, script planning, research flow, and communication-first storytelling.</p>
-            <div class="project-stack">
-              <span>Content</span>
-              <span>Research</span>
-              <span>Communication</span>
             </div>
           </a>
           <a class="project-card reveal" href="pages/ethical-tech.html">
             <span class="project-icon mono">ETH</span>
             <h3>Ethical Tech Principles</h3>
-            <p>A professional page presenting safe learning rules, cyber-awareness examples, and responsible technical practice.</p>
+            <p>A trust-building page explaining learning rules, permission-first work, and responsible technical practice.</p>
             <div class="project-stack">
               <span>Ethics</span>
-              <span>Awareness</span>
               <span>Trust</span>
+              <span>Awareness</span>
             </div>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Why This Portfolio Works</span>
+            <h2>The strongest parts are clarity, proof, and consistency across pages.</h2>
+          </div>
+          <p>
+            A professional portfolio should feel intentional from the homepage down to the smallest skill page.
+          </p>
+        </div>
+
+        <div class="highlight-grid">
+          <article class="highlight-card reveal">
+            <h3>Real identity and proof</h3>
+            <p>Using a real profile photo, actual achievement pages, and working demos makes the site feel credible.</p>
+          </article>
+          <article class="highlight-card reveal">
+            <h3>Project-first structure</h3>
+            <p>Visitors can move from homepage overview into focused skill pages and interactive modules without confusion.</p>
+          </article>
+          <article class="highlight-card reveal">
+            <h3>App-like experience</h3>
+            <p>Launchers, module sections, and dashboard-style layouts help the website feel more premium than a plain portfolio.</p>
+          </article>
+          <article class="highlight-card reveal">
+            <h3>Professional writing</h3>
+            <p>Every section is written to explain value, not just list tools. That makes the work easier to understand fast.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Workflow</span>
+            <h2>How I usually turn an idea into a polished result.</h2>
+          </div>
+          <p>
+            Professional websites feel stronger when the process behind them is visible and repeatable.
+          </p>
+        </div>
+
+        <div class="workflow-grid">
+          <article class="workflow-card reveal">
+            <span class="workflow-step">01</span>
+            <h3>Research the problem</h3>
+            <p>Understand the goal, compare examples, and note what the page or feature should communicate clearly.</p>
+          </article>
+          <article class="workflow-card reveal">
+            <span class="workflow-step">02</span>
+            <h3>Design the structure</h3>
+            <p>Break the work into sections, modules, or app panels so the visitor can understand it without friction.</p>
+          </article>
+          <article class="workflow-card reveal">
+            <span class="workflow-step">03</span>
+            <h3>Build and test</h3>
+            <p>Create the layout, add the interaction, then refine behavior, spacing, and clarity until the result feels stable.</p>
+          </article>
+          <article class="workflow-card reveal">
+            <span class="workflow-step">04</span>
+            <h3>Polish and explain</h3>
+            <p>Improve content, visuals, accessibility, and metadata so the final output feels professional and ready to share.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -381,55 +490,67 @@
       <div class="shell">
         <div class="section-heading reveal">
           <div>
-            <span class="eyebrow">Contact & Links</span>
-            <h2>Button-first contact shortcuts.</h2>
+            <span class="eyebrow">Contact and Support</span>
+            <h2>Clear action paths instead of raw contact clutter.</h2>
           </div>
           <p>
-            The contact area is now moving toward an app-like shortcut layout instead of showing plain details first.
+            The contact area is designed like a clean command center: one path to connect, one path to review work, and one path to support.
           </p>
         </div>
 
         <div class="contact-layout">
           <article class="contact-card reveal">
             <h3>Get in touch</h3>
-            <div class="contact-list">
-              <div class="contact-item">
-                <strong>Location</strong>
-                <span>Patna, Bihar, India</span>
-              </div>
-              <div class="contact-item">
-                <strong>LinkedIn</strong>
-                <a href="https://www.linkedin.com/in/nishant-kumar-423870291/" target="_blank" rel="noreferrer">linkedin.com/in/nishant-kumar-423870291</a>
-              </div>
-              <div class="contact-item">
-                <strong>GitHub</strong>
-                <a href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">github.com/Neeshant01</a>
-              </div>
+            <p>
+              If you want to connect, review the work, or discuss future growth, use one of these direct action buttons.
+            </p>
+
+            <div class="contact-actions">
+              <a class="action-card" href="mailto:nishant0880kumar@gmail.com">
+                <strong>Email Me</strong>
+                <span>Open a direct mail draft to start a conversation.</span>
+              </a>
+              <a
+                class="action-card"
+                href="https://www.linkedin.com/in/nishant-kumar-423870291/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <strong>Visit LinkedIn</strong>
+                <span>See the public profile and professional presence.</span>
+              </a>
+              <a
+                class="action-card"
+                href="https://github.com/Neeshant01"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <strong>View GitHub</strong>
+                <span>Explore code, repositories, and project history.</span>
+              </a>
             </div>
 
-            <div class="button-row">
-              <a class="button button-primary" href="mailto:nishant0880kumar@gmail.com">Get In Touch</a>
-              <a class="button button-primary" href="https://www.linkedin.com/in/nishant-kumar-423870291/" target="_blank" rel="noreferrer">LinkedIn Button</a>
-              <a class="button button-secondary" href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">GitHub Button</a>
-              <a class="button button-secondary" href="pages/donate.html">Donate Button</a>
-            </div>
-
-            <div class="donate-panel">
-              <h4>Support / Donate</h4>
-              <p class="muted-copy">Choose Option 1 or Option 2 on the donation page, then continue with the method you want.</p>
-              <a class="button button-primary donate-button" href="pages/donate.html">Donate</a>
+            <div class="mini-panel contact-note">
+              <h3>Base Location</h3>
+              <p>Patna, Bihar, India</p>
             </div>
           </article>
 
-          <article class="contact-card reveal">
-            <h3>Ethical note</h3>
+          <article class="support-card reveal">
+            <span class="meta-label">Support This Work</span>
+            <h3>Choose a donation method only when you want to continue.</h3>
             <p>
-              This portfolio represents an ethical learning path. It is focused on constructive skills, legal practice,
-              professional growth, and creativity used in a responsible way.
+              The support flow is intentionally simple. First choose Option 1 or Option 2, then continue with the payment route you prefer.
             </p>
-            <p class="top-gap muted-copy">
-              The goal is to keep learning deeply, present work professionally, and build a strong future in software engineering.
-            </p>
+            <ul class="support-points">
+              <li>Option 1: custom amount QR flow</li>
+              <li>Option 2: direct Razorpay route</li>
+              <li>No QR is shown until you choose the custom route</li>
+            </ul>
+            <div class="hero-actions">
+              <a class="button button-primary" href="pages/donate.html">Support My Work</a>
+              <a class="button button-secondary" href="#projects">See What You Support</a>
+            </div>
           </article>
         </div>
       </div>
@@ -438,8 +559,30 @@
 
   <footer class="footer">
     <div class="shell footer-panel">
-      <p><span class="mono">NISHANT_KUMAR</span> portfolio with linked professional pages for every key skill.</p>
-      <p>Built with HTML, CSS, JavaScript, app-style skill pages, and your real profile image.</p>
+      <div class="footer-grid">
+        <section class="footer-column">
+          <h3>Nishant Kumar</h3>
+          <p>
+            Ethical tech portfolio combining frontend foundations, interactive app labs, research workflows, and creative presentation.
+          </p>
+        </section>
+        <section class="footer-column">
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="#skills">Skill Pages</a>
+            <a href="#projects">Featured Projects</a>
+            <a href="#workflow">Workflow</a>
+          </div>
+        </section>
+        <section class="footer-column">
+          <h3>Direct Actions</h3>
+          <div class="footer-links">
+            <a href="mailto:nishant0880kumar@gmail.com">Email Me</a>
+            <a href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="pages/donate.html">Support</a>
+          </div>
+        </section>
+      </div>
     </div>
   </footer>
 

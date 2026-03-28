@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nishant Kumar favicon">
+  <defs>
+    <linearGradient id="g" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#67deff"/>
+      <stop offset="100%" stop-color="#ffbf7d"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#08111f"/>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="none" stroke="url(#g)" stroke-width="2.5"/>
+  <path d="M18 46V18h6l16 20V18h6v28h-6L24 26v20z" fill="url(#g)"/>
+</svg>
