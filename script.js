@@ -1,43 +1,5 @@
-const commandText = 'render_portfolio --owner "nishant-kumar" --theme neon-personal';
-const typedCommand = document.getElementById("typed-command");
-const terminalOutput = document.getElementById("terminal-output");
 const counterNodes = document.querySelectorAll("[data-count]");
 const revealNodes = document.querySelectorAll("[data-reveal]");
-
-function typeCommand(text, index = 0) {
-  if (!typedCommand) {
-    return;
-  }
-
-  typedCommand.textContent = text.slice(0, index);
-
-  if (index < text.length) {
-    setTimeout(() => typeCommand(text, index + 1), 42);
-    return;
-  }
-
-  setTimeout(addTerminalLines, 650);
-}
-
-function addTerminalLines() {
-  if (!terminalOutput) {
-    return;
-  }
-
-  const lines = [
-    "> personal branding layer applied successfully...",
-    "> projects linked to live GitHub profile...",
-    "> portfolio broadcast ready for recruiters and collaborators.",
-  ];
-
-  lines.forEach((line, index) => {
-    setTimeout(() => {
-      const paragraph = document.createElement("p");
-      paragraph.textContent = line;
-      terminalOutput.appendChild(paragraph);
-    }, 420 * (index + 1));
-  });
-}
 
 function animateCounters() {
   counterNodes.forEach((node) => {
@@ -48,7 +10,7 @@ function animateCounters() {
 
     let current = 0;
     const length = String(node.dataset.count).length;
-    const step = Math.max(1, Math.ceil(target / 40));
+    const step = Math.max(1, Math.ceil(target / 36));
 
     const tick = () => {
       current = Math.min(current + step, target);
@@ -103,7 +65,7 @@ function setupMatrixRain() {
   }
 
   function draw() {
-    context.fillStyle = "rgba(4, 5, 15, 0.14)";
+    context.fillStyle = "rgba(4, 8, 18, 0.11)";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     context.font = `${fontSize}px "JetBrains Mono", monospace`;
@@ -113,7 +75,7 @@ function setupMatrixRain() {
       const x = index * fontSize;
       const y = drop * fontSize;
 
-      context.fillStyle = Math.random() > 0.84 ? "#ff5db7" : "#76ecff";
+      context.fillStyle = Math.random() > 0.85 ? "#8e7cff" : "#76ecff";
       context.fillText(glyph, x, y);
 
       if (y > canvas.height && Math.random() > 0.975) {
@@ -133,7 +95,6 @@ function setupMatrixRain() {
 
 setupReveal();
 setupMatrixRain();
-typeCommand(commandText);
 
 window.addEventListener(
   "load",
