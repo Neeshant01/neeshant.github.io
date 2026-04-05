@@ -4,7 +4,7 @@
   --panel: rgba(12, 20, 40, 0.9);
   --panel-soft: rgba(17, 28, 52, 0.88);
   --text: #f5f7ff;
-  --muted: #afbddc;
+  --muted: #c4d0ea;
   --line: rgba(124, 229, 255, 0.14);
   --cyan: #76ecff;
   --violet: #8e7cff;
@@ -176,6 +176,18 @@ a {
   padding: 5rem 0;
 }
 
+.about-section,
+.projects-section,
+.updates-section {
+  background: linear-gradient(180deg, rgba(8, 14, 28, 0.3) 0%, rgba(12, 20, 40, 0.42) 100%);
+}
+
+.services-section,
+.resume-section,
+.contact-section {
+  background: linear-gradient(180deg, rgba(14, 22, 44, 0.18) 0%, rgba(7, 12, 24, 0.08) 100%);
+}
+
 .hero {
   min-height: 100vh;
   display: grid;
@@ -252,9 +264,14 @@ a {
   margin: 1.5rem 0 0;
 }
 
+.hero-line {
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
 .hero-actions,
-.hero-tags,
-.hero-metrics,
 .project-links,
 .contact-actions {
   display: flex;
@@ -299,7 +316,6 @@ a {
   background: rgba(255, 255, 255, 0.03);
 }
 
-.hero-tags span,
 .metric-card,
 .preview-card,
 .info-card,
@@ -314,16 +330,6 @@ a {
   background: linear-gradient(180deg, rgba(14, 22, 44, 0.92) 0%, rgba(9, 14, 28, 0.96) 100%);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
-}
-
-.hero-tags span {
-  padding: 0.75rem 0.95rem;
-  color: var(--muted);
-  border-radius: 999px;
-}
-
-.hero-metrics {
-  margin-top: 1.5rem;
 }
 
 .metric-card {
@@ -377,7 +383,6 @@ a {
   border: 1px solid rgba(124, 229, 255, 0.15);
 }
 
-.preview-grid,
 .about-panel,
 .feature-grid,
 .project-grid,
@@ -385,10 +390,6 @@ a {
 .updates-grid {
   display: grid;
   gap: 1rem;
-}
-
-.preview-grid {
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .preview-card strong,
@@ -465,6 +466,16 @@ a {
 
 .project-grid {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.project-stack {
+  margin: 1rem 0 1.2rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.project-stack strong {
+  color: var(--text);
 }
 
 .project-preview,
@@ -664,8 +675,6 @@ a {
 
   .nav,
   .hero-actions,
-  .hero-tags,
-  .hero-metrics,
   .project-links,
   .contact-actions {
     flex-direction: column;
