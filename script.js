@@ -1,33 +1,35 @@
-const counterNodes = document.querySelectorAll("[data-count]");
 const revealNodes = document.querySelectorAll("[data-reveal]");
 const headerShell = document.querySelector(".header-shell");
 const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.getElementById("site-nav");
 const navLinks = document.querySelectorAll(".nav a");
+const amountCards = document.querySelectorAll(".amount-card");
+const customAmountInput = document.getElementById("custom-amount");
+const donationKicker = document.getElementById("donation-kicker");
+const donationText = document.getElementById("donation-text");
+const selectedAmountLabel = document.getElementById("selected-amount-label");
+const copyUpiButton = document.getElementById("copy-upi");
+const upiId = document.getElementById("upi-id");
+const thanksCard = document.getElementById("thanks-card");
+const thanksText = document.getElementById("thanks-text");
+const surpriseTitle = document.getElementById("surprise-title");
+const surpriseText = document.getElementById("surprise-text");
 
-function animateCounters() {
-  counterNodes.forEach((node) => {
-    const target = Number(node.dataset.count);
-    if (Number.isNaN(target)) {
-      return;
-    }
+let selectedAmount = "10";
 
-    let current = 0;
-    const length = String(node.dataset.count).length;
-    const step = Math.max(1, Math.ceil(target / 36));
-
-    const tick = () => {
-      current = Math.min(current + step, target);
-      node.textContent = String(current).padStart(length, "0");
-
-      if (current < target) {
-        requestAnimationFrame(tick);
-      }
-    };
-
-    tick();
-  });
-}
+const surpriseMessages = [
+  {
+    title: "Midnight Supporter",
+    text: "Aapne bot ka dil jeet liya. Ab ye officially aapko apna raat ka hero maanta hai.",
+  },
+  {
+    title: "Legendary UPI Warrior",
+    text: "Agar bhej diya, to aapne simple donate nahi kiya. Aapne pure vibe ko upgrade kar diya.",
+  },
+  {
+    title: "Code Fuel Dealer",
+    text: "Aapke naam ka invisible sticker ab robot ke processor pe lag gaya hai.",
+  },
+];
 
 function setupReveal() {
   const observer = new IntersectionObserver(
@@ -71,7 +73,6 @@ function setupMatrixRain() {
   function draw() {
     context.fillStyle = "rgba(4, 8, 18, 0.11)";
     context.fillRect(0, 0, canvas.width, canvas.height);
-
     context.font = `${fontSize}px "JetBrains Mono", monospace`;
 
     drops.forEach((drop, index) => {
@@ -98,7 +99,7 @@ function setupMatrixRain() {
 }
 
 function setupMenu() {
-  if (!(headerShell instanceof HTMLElement) || !(menuToggle instanceof HTMLButtonElement) || !(nav instanceof HTMLElement)) {
+  if (!(headerShell instanceof HTMLElement) || !(menuToggle instanceof HTMLButtonElement)) {
     return;
   }
 
@@ -107,20 +108,15 @@ function setupMenu() {
     menuToggle.setAttribute("aria-expanded", "false");
   };
 
-  const openMenu = () => {
-    headerShell.classList.add("nav-open");
-    menuToggle.setAttribute("aria-expanded", "true");
-  };
-
   menuToggle.addEventListener("click", () => {
     const isOpen = headerShell.classList.contains("nav-open");
-
     if (isOpen) {
       closeMenu();
       return;
     }
 
-    openMenu();
+    headerShell.classList.add("nav-open");
+    menuToggle.setAttribute("aria-expanded", "true");
   });
 
   navLinks.forEach((link) => {
@@ -142,10 +138,10 @@ function setupMenu() {
 
 function setupMouseAnimations() {
   const glowTargets = document.querySelectorAll(
-    ".button, .menu-toggle, .portrait-card, .preview-card, .info-card, .feature-card, .project-card, .track-card, .resume-item, .update-card, .contact-row, .nav a"
+    ".button, .menu-toggle, .portrait-card, .info-card, .project-card, .contact-row, .amount-card, .donation-bot-card, .donation-message-box, .thanks-card, .nav a"
   );
   const tiltTargets = document.querySelectorAll(
-    ".portrait-card, .preview-card, .info-card, .feature-card, .project-card, .track-card, .resume-item, .update-card, .contact-row"
+    ".portrait-card, .donation-bot-card, .donation-message-box, .amount-card, .project-card, .contact-row"
   );
 
   glowTargets.forEach((node) => {
@@ -174,6 +170,8 @@ function setupMouseAnimations() {
       return;
     }
 
+    node.classList.add("mouse-tilt");
+
     node.addEventListener("pointermove", (event) => {
       const rect = node.getBoundingClientRect();
       const x = event.clientX - rect.left;
@@ -189,15 +187,115 @@ function setupMouseAnimations() {
   });
 }
 
+function updateDonationContent(amount, title, pitch) {
+  selectedAmount = amount;
+
+  if (donationKicker) {
+    donationKicker.textContent = title;
+  }
+
+  if (donationText) {
+    donationText.textContent = pitch;
+  }
+
+  if (selectedAmountLabel) {
+    selectedAmountLabel.textContent = `Selected: ${amount}`;
+  }
+
+  if (copyUpiButton) {
+    copyUpiButton.textContent = "Copy UPI & Donate";
+  }
+}
+
+function setupDonationSelection() {
+  amountCards.forEach((card) => {
+    if (!(card instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    card.addEventListener("click", () => {
+      amountCards.forEach((other) => other.classList.remove("active"));
+      card.classList.add("active");
+
+      const amount = card.dataset.amount ?? "10";
+      const title = card.dataset.title ?? "Thoda support kar do";
+      const pitch = card.dataset.pitch ?? "UPI copy karo aur dil se support bhejo.";
+      updateDonationContent(amount, title, pitch);
+
+      if (customAmountInput instanceof HTMLInputElement) {
+        customAmountInput.value = "";
+      }
+    });
+  });
+
+  if (customAmountInput instanceof HTMLInputElement) {
+    customAmountInput.addEventListener("input", () => {
+      const trimmed = customAmountInput.value.trim();
+      if (!trimmed) {
+        return;
+      }
+
+      amountCards.forEach((card) => card.classList.remove("active"));
+      updateDonationContent(
+        trimmed,
+        `Custom amount ${trimmed} ka pyaar`,
+        `Wah boss. ${trimmed} type kar diya matlab aap dil se aaye ho. UPI copy karo aur scene bana do.`
+      );
+    });
+  }
+}
+
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+}
+
+function setupDonationAction() {
+  if (!(copyUpiButton instanceof HTMLButtonElement) || !(upiId instanceof HTMLElement)) {
+    return;
+  }
+
+  copyUpiButton.addEventListener("click", async () => {
+    try {
+      await copyText(upiId.textContent ?? "NEESHANT01@PNB");
+      copyUpiButton.textContent = "UPI Copied";
+
+      if (thanksCard instanceof HTMLElement) {
+        thanksCard.hidden = false;
+      }
+
+      if (thanksText instanceof HTMLElement) {
+        thanksText.textContent = `UPI copy ho gaya. Agar aapne ${selectedAmount} bhej diya ho, dil se thank you boss.`;
+      }
+
+      const surprise = surpriseMessages[Math.floor(Math.random() * surpriseMessages.length)];
+      if (surpriseTitle instanceof HTMLElement) {
+        surpriseTitle.textContent = surprise.title;
+      }
+      if (surpriseText instanceof HTMLElement) {
+        surpriseText.textContent = surprise.text;
+      }
+    } catch {
+      copyUpiButton.textContent = "Copy Failed";
+    }
+  });
+}
+
 setupReveal();
 setupMatrixRain();
 setupMenu();
 setupMouseAnimations();
-
-window.addEventListener(
-  "load",
-  () => {
-    animateCounters();
-  },
-  { once: true }
-);
+setupDonationSelection();
+setupDonationAction();
