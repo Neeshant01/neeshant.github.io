@@ -793,11 +793,28 @@ h3 {
   font-family: var(--mono);
 }
 
+.project-link-static::after {
+  content: "";
+}
+
+.project-link-static {
+  color: #f6ecd7;
+  background: rgba(255, 180, 84, 0.08);
+  border-color: rgba(255, 180, 84, 0.18);
+  cursor: default;
+}
+
 .project-link:hover,
 .project-link:focus-visible {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.06);
   outline: none;
+}
+
+.project-link-static:hover,
+.project-link-static:focus-visible {
+  transform: none;
+  background: rgba(255, 180, 84, 0.08);
 }
 
 .placeholder-card {

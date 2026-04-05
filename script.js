@@ -6,7 +6,7 @@ const phrases = [
   "Open to internships and collaborations",
   "Building with HTML, React, and Python",
   "Designing clean, responsive pages",
-  "Checking projects before featuring them"
+  "Showing checked work in portfolio style"
 ];
 
 let phraseIndex = 0;
@@ -90,9 +90,8 @@ function createProjectCard(project) {
   const safeType = project.type || "Project";
   const safeSummary = project.summary || "Project details will be added here.";
   const safeStack = project.stack || "More details soon";
-  const safeLink = project.link || "#";
-  const safeLinkLabel = project.linkLabel || "Open Project";
   const safeStatus = project.status || "Checked";
+  const safeDisplayLabel = project.displayLabel || "Working Project";
   const safeYear = project.year || "Now";
   const highlights = Array.isArray(project.highlights) ? project.highlights.slice(0, 3) : [];
 
@@ -128,15 +127,9 @@ function createProjectCard(project) {
   footer.className = "project-footer";
 
   const stack = createTextElement("span", "project-stack", safeStack);
-  const link = createTextElement("a", "project-link", safeLinkLabel);
-  link.href = safeLink;
+  const display = createTextElement("span", "project-link project-link-static", safeDisplayLabel);
 
-  if (/^https?:\/\//.test(safeLink)) {
-    link.target = "_blank";
-    link.rel = "noreferrer";
-  }
-
-  footer.append(stack, link);
+  footer.append(stack, display);
   article.appendChild(footer);
 
   return article;
@@ -166,8 +159,8 @@ async function loadProjects() {
       emptyCard.className = "project-card placeholder-card reveal";
       emptyCard.append(
         createTextElement("span", "project-tag", "Empty"),
-        createTextElement("h3", "", "No verified projects added yet."),
-        createTextElement("p", "", "Add checked repositories in projects/projects.json and they will appear here.")
+        createTextElement("h3", "", "No checked projects added yet."),
+        createTextElement("p", "", "Add checked projects in projects/projects.json and they will appear here.")
       );
       projectsGrid.appendChild(emptyCard);
       registerReveal([emptyCard]);

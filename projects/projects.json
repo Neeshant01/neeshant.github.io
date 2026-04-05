@@ -5,15 +5,14 @@
       "type": "Automation Dashboard",
       "summary": "A React and TypeScript workflow for discovering trends, preparing content assets, and moving YouTube videos toward publishing.",
       "stack": "React / TypeScript / Firebase / Gemini API",
-      "link": "https://github.com/Neeshant01/auto-yt",
-      "linkLabel": "Open GitHub Repo",
-      "status": "Build Verified",
+      "status": "Working Build",
+      "displayLabel": "Build Checked",
       "year": "2026",
       "accent": "#ffb454",
       "highlights": [
         "Local production build passes successfully",
         "Trend discovery and publishing pipeline interface",
-        "Direct GitHub link instead of a separate project page"
+        "Presented here as a portfolio project instead of a GitHub button"
       ]
     },
     {
@@ -21,9 +20,8 @@
       "type": "Python Desktop Assistant",
       "summary": "A modular desktop assistant prototype that listens for commands, automates system tasks, and can be extended with plugins.",
       "stack": "Python / SpeechRecognition / pyttsx3 / PyAutoGUI",
-      "link": "https://github.com/Neeshant01/desi-jarvis",
-      "linkLabel": "Open GitHub Repo",
-      "status": "Syntax Verified",
+      "status": "Working Check",
+      "displayLabel": "Syntax Checked",
       "year": "2026",
       "accent": "#7ae0d6",
       "highlights": [
@@ -35,16 +33,15 @@
     {
       "title": "neeshant01.github.io",
       "type": "Portfolio Website",
-      "summary": "My personal portfolio site for profile, verified project links, contact options, and a cleaner support flow.",
+      "summary": "My personal portfolio site for profile, featured project highlights, contact options, and a cleaner support flow.",
       "stack": "HTML / CSS / JavaScript",
-      "link": "https://github.com/Neeshant01/neeshant01.github.io",
-      "linkLabel": "Open GitHub Repo",
-      "status": "Updated",
+      "status": "Live Update",
+      "displayLabel": "Portfolio Ready",
       "year": "2026",
       "accent": "#ff8d8d",
       "highlights": [
         "Homepage refreshed with stronger visual design",
-        "Only checked repositories are featured in the project grid",
+        "Only checked projects are featured in the project grid",
         "Broken donate page stylesheet issue has been fixed"
       ]
     }

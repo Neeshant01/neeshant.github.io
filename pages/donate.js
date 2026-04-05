@@ -10,6 +10,7 @@ const optionOneButton = document.getElementById("option-one-button");
 const optionTwoButton = document.getElementById("option-two-button");
 const optionOnePanel = document.getElementById("option-one-panel");
 const optionTwoPanel = document.getElementById("option-two-panel");
+const defaultUpiId = "9279080614@okbizaxix";
 
 function setStatus(message) {
   if (statusText) {
@@ -27,6 +28,10 @@ function showPanel(panelName) {
   if (!showOptionOne) {
     qrWrap?.classList.add("is-hidden");
   }
+}
+
+if (upiInput && !upiInput.value.trim()) {
+  upiInput.value = defaultUpiId;
 }
 
 function buildPaymentLink(amount) {
@@ -94,7 +99,7 @@ function handleGenerate() {
 
 optionOneButton?.addEventListener("click", () => {
   showPanel("option-one");
-  setStatus("Option 1 selected. Enter the amount, add your UPI details, and generate your QR.");
+  setStatus("Option 1 selected. Enter the amount, keep the fixed UPI ID, and generate your QR.");
 });
 
 optionTwoButton?.addEventListener("click", () => {
