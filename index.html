@@ -37,14 +37,30 @@
   <header class="site-header">
     <div class="shell header-shell">
       <a class="brand" href="#home">
-        <span class="brand-mark"></span>
+        <img
+          class="brand-avatar"
+          src="profile-photo.jpg"
+          alt="Nishant Kumar logo portrait"
+        >
         <span class="brand-copy">
           <strong>Nishant Kumar</strong>
           <small>Aspiring Software Engineer</small>
         </span>
       </a>
 
-      <nav class="nav" aria-label="Main Navigation">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Main Navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">What I Do</a>
