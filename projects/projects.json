@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "title": "Project 1",
+      "type": "Starter Project",
+      "summary": "This is the first sample project card. You can replace this with your real project title, summary, and page link later.",
+      "stack": "HTML / CSS / JavaScript",
+      "link": "projects/project-1.html",
+      "linkLabel": "Open Project"
+    },
+    {
+      "title": "Add New Project",
+      "type": "Template",
+      "summary": "Use the template project page and add one new item in this JSON file. The new project will show automatically on the homepage.",
+      "stack": "Copy template + update JSON",
+      "link": "projects/project-template.html",
+      "linkLabel": "Open Template"
+    }
+  ]
+}

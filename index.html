@@ -6,16 +6,16 @@
   <title>Nishant Kumar | Personal Website</title>
   <meta
     name="description"
-    content="A simple personal website for Nishant Kumar, a student from Patna, Bihar, India."
+    content="Simple personal website for Nishant Kumar with a clean homepage, contact links, and a reusable projects section."
   >
   <meta name="author" content="Nishant Kumar">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#04110a">
+  <meta name="theme-color" content="#091018">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nishant Kumar | Personal Website">
   <meta
     property="og:description"
-    content="Simple personal website with an introduction, photo, and contact links."
+    content="A clean personal website with a simple introduction, profile photo, and flexible project section."
   >
   <meta property="og:url" content="https://neeshant01.github.io/">
   <meta property="og:image" content="https://neeshant01.github.io/assets/profile-web.jpg">
@@ -23,7 +23,7 @@
   <meta name="twitter:title" content="Nishant Kumar | Personal Website">
   <meta
     name="twitter:description"
-    content="Simple personal website with an introduction, photo, and contact links."
+    content="A clean personal website with a simple introduction, profile photo, and flexible project section."
   >
   <meta name="twitter:image" content="https://neeshant01.github.io/assets/profile-web.jpg">
   <link rel="canonical" href="https://neeshant01.github.io/">
@@ -31,102 +31,129 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-bg"></div>
+  <div class="page-glow" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="shell nav-shell">
       <a class="brand" href="#home">Nishant Kumar</a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#contact" data-nav="contact">Contact</a>
         <a href="pages/donate.html?v=20260328c">Donate</a>
       </nav>
     </div>
   </header>
 
-  <main id="home">
-    <section class="hero-section">
+  <main>
+    <section id="home" class="hero-section">
       <div class="shell hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">System active // Patna, Bihar, India</span>
-          <h1>Hello, I am Nishant Kumar.</h1>
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Patna, Bihar, India</span>
+          <h1>Simple website. Clean look. Ready for future projects.</h1>
           <p class="hero-text">
-            This is a simple personal website with a hacker-style look. I am a student who likes learning technology,
-            improving design, and building things step by step.
+            I am Nishant Kumar. This page keeps things simple, shows who I am, and gives me a clean place to add new
+            projects whenever I build something new.
           </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Get In Touch</a>
-            <a class="button button-secondary" href="pages/donate.html?v=20260328c">Donate</a>
+          <div class="terminal-line">
+            <span class="terminal-prompt">&gt;</span>
+            <span id="typed-text">Loading...</span>
+            <span class="cursor" aria-hidden="true"></span>
           </div>
-
-          <div class="hero-notes">
-            <div class="note-card">
-              <strong>Role</strong>
-              <span>Student</span>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="#contact">Get In Touch</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-card">
+              <strong>Type</strong>
+              <span>Personal website</span>
             </div>
-            <div class="note-card">
-              <strong>Focus</strong>
-              <span>Learning and growing</span>
+            <div class="meta-card">
+              <strong>Use</strong>
+              <span>Profile + projects</span>
             </div>
-            <div class="note-card">
-              <strong>Style</strong>
-              <span>Simple and clean</span>
+            <div class="meta-card">
+              <strong>Future</strong>
+              <span>Add more work anytime</span>
             </div>
           </div>
         </div>
 
-        <div class="portrait-panel">
-          <div class="portrait-ring"></div>
+        <div class="portrait-card reveal">
+          <div class="portrait-badge">Profile</div>
           <div class="portrait-frame">
             <img src="assets/profile-web.jpg" alt="Portrait of Nishant Kumar" fetchpriority="high">
           </div>
-          <p class="portrait-caption">A personal profile frame with a darker terminal-inspired style.</p>
+          <p class="portrait-note">A clearer profile section with a softer premium frame.</p>
         </div>
       </div>
     </section>
 
-    <section id="about" class="info-section">
-      <div class="shell info-layout">
-        <article class="info-card">
+    <section id="about" class="section">
+      <div class="shell section-grid">
+        <article class="panel reveal">
           <span class="eyebrow">About</span>
-          <h2>Keeping things simple.</h2>
+          <h2>Built to stay simple.</h2>
           <p>
-            I wanted this website to be easy to read and easy to use. Instead of adding too many sections, I kept only
-            the essentials.
+            This homepage is intentionally minimal. It introduces me, keeps the layout clean, and leaves room for
+            projects to grow over time.
           </p>
           <p>
-            It gives a quick introduction, shows my photo clearly, and makes it easy for someone to contact me.
+            Instead of rebuilding the whole website every time, I now have a separate project area that can be updated
+            whenever I add something new.
           </p>
         </article>
 
-        <aside class="info-card soft-card">
-          <span class="eyebrow">Details</span>
+        <aside class="panel panel-soft reveal">
+          <span class="eyebrow">Quick Info</span>
           <ul class="detail-list">
             <li><strong>Name</strong><span>Nishant Kumar</span></li>
             <li><strong>Role</strong><span>Student</span></li>
-            <li><strong>Location</strong><span>Patna, Bihar, India</span></li>
-            <li><strong>Website</strong><span>Simple personal page</span></li>
+            <li><strong>Base</strong><span>Patna, Bihar, India</span></li>
+            <li><strong>Focus</strong><span>Simple personal presence</span></li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <section id="contact" class="contact-section">
+    <section id="projects" class="section projects-section">
       <div class="shell">
-        <div class="section-heading">
-          <span class="eyebrow">Contact</span>
-          <h2>Reach out in one click.</h2>
-          <p>I kept this section direct and simple so you can contact me without searching around the page.</p>
+        <div class="section-heading reveal">
+          <span class="eyebrow">Projects</span>
+          <h2>Project folder ready.</h2>
+          <p>
+            These cards come from a separate project file. When a new project is added there, it can appear here
+            without changing the whole homepage.
+          </p>
         </div>
 
-        <div class="contact-grid">
+        <div id="projects-grid" class="projects-grid reveal" aria-live="polite">
+          <article class="project-card placeholder-card">
+            <span class="project-tag">Loading</span>
+            <h3>Projects are loading...</h3>
+            <p>The project list will appear here automatically.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>One place to reach me.</h2>
+          <p>Everything important is kept here in a simple button-based layout.</p>
+        </div>
+
+        <div class="contact-grid reveal">
           <a class="contact-card" href="mailto:nishant0880kumar@gmail.com">
             <strong>Email</strong>
             <span>nishant0880kumar@gmail.com</span>
@@ -151,8 +178,10 @@
   <footer class="site-footer">
     <div class="shell footer-shell">
       <p>Nishant Kumar</p>
-      <p>Simple personal website</p>
+      <p>Simple personal website with a reusable project section</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
