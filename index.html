@@ -3,254 +3,236 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Under Maintenance</title>
-  <meta name="description" content="Website under maintenance. Please check back soon.">
-  <style>
-    :root {
-      color-scheme: dark;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      padding: 24px;
-      background:
-        radial-gradient(circle at top left, rgba(0, 217, 255, 0.18), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(0, 255, 170, 0.14), transparent 24%),
-        linear-gradient(180deg, #030507 0%, #060a10 45%, #020304 100%);
-      color: #f5fbff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      border-radius: 999px;
-      filter: blur(80px);
-      pointer-events: none;
-      opacity: 0.7;
-      animation: float 10s ease-in-out infinite;
-    }
-
-    body::before {
-      width: 240px;
-      height: 240px;
-      top: 10%;
-      left: -60px;
-      background: rgba(0, 217, 255, 0.18);
-    }
-
-    body::after {
-      width: 280px;
-      height: 280px;
-      right: -80px;
-      bottom: 5%;
-      background: rgba(0, 255, 170, 0.14);
-      animation-delay: -4s;
-    }
-
-    .panel {
-      position: relative;
-      width: min(100%, 620px);
-      padding: 40px 28px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 28px;
-      background: rgba(7, 12, 18, 0.78);
-      backdrop-filter: blur(16px);
-      box-shadow:
-        0 0 0 1px rgba(0, 217, 255, 0.08),
-        0 24px 80px rgba(0, 0, 0, 0.45);
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      padding: 10px 16px;
-      border: 1px solid rgba(0, 217, 255, 0.16);
-      border-radius: 999px;
-      background: rgba(0, 217, 255, 0.08);
-      color: #90f6ff;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #67f7ff;
-      box-shadow: 0 0 16px #67f7ff;
-      animation: pulse 1.4s ease-in-out infinite;
-    }
-
-    .ring {
-      position: relative;
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 24px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.08);
-      border-top-color: #67f7ff;
-      border-right-color: #6effc8;
-      animation: spin 4s linear infinite;
-    }
-
-    .ring::before,
-    .ring::after {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-    }
-
-    .ring::before {
-      border-left-color: rgba(103, 247, 255, 0.7);
-      animation: spinReverse 2.8s linear infinite;
-    }
-
-    .ring::after {
-      inset: 28px;
-      background: radial-gradient(circle, rgba(103, 247, 255, 0.22), transparent 70%);
-      animation: pulse 1.8s ease-in-out infinite;
-    }
-
-    h1,
-    p {
-      margin: 0;
-    }
-
-    h1 {
-      font-size: clamp(2.3rem, 7vw, 4.4rem);
-      line-height: 1.05;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .subtitle {
-      margin-bottom: 18px;
-      font-size: clamp(1rem, 3vw, 1.35rem);
-      color: #d3e4ef;
-    }
-
-    .message {
-      color: #93a4af;
-      font-size: 1rem;
-    }
-
-    .loading {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 24px;
-      color: #84f7ff;
-      font-size: 0.95rem;
-    }
-
-    .loading span {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: currentColor;
-      animation: bounce 1.2s infinite ease-in-out;
-    }
-
-    .loading span:nth-child(2) {
-      animation-delay: 0.15s;
-    }
-
-    .loading span:nth-child(3) {
-      animation-delay: 0.3s;
-    }
-
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes spinReverse {
-      from {
-        transform: rotate(360deg);
-      }
-
-      to {
-        transform: rotate(0deg);
-      }
-    }
-
-    @keyframes pulse {
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.7;
-      }
-
-      50% {
-        transform: scale(1.12);
-        opacity: 1;
-      }
-    }
-
-    @keyframes bounce {
-      0%,
-      80%,
-      100% {
-        transform: translateY(0);
-        opacity: 0.45;
-      }
-
-      40% {
-        transform: translateY(-8px);
-        opacity: 1;
-      }
-    }
-
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(24px);
-      }
-    }
-  </style>
+  <title>Nishant Kumar | Simple Portfolio</title>
+  <meta name="description" content="Simple portfolio with projects, a WhatsApp contact form, and a support bot donation flow.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="panel">
-    <div class="status">
-      <span class="dot"></span>
-      <span>Maintenance Mode</span>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Go to home">NK</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#donate">Donate</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="header-link header-button" type="button" data-open-donate>Open Support Bot</button>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Student Developer</p>
+          <h1>Hi, I am Nishant Kumar</h1>
+          <p class="hero-role">I am a Student Developer</p>
+          <p class="hero-tagline">Simple idea and better expression</p>
+          <p class="hero-description">
+            A clean portfolio where projects load from one JSON file, contact requests open in WhatsApp,
+            and support runs through a simple UPI donation flow with a fun bot modal.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <button class="btn btn-secondary" type="button" data-open-donate>Donate</button>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
+          </div>
+          <div class="hero-points" aria-label="Highlights">
+            <span>Dynamic project cards</span>
+            <span>WhatsApp contact form</span>
+            <span>UPI QR support bot</span>
+          </div>
+        </div>
+
+        <aside class="hero-card panel">
+          <img src="assets/profile-web.jpg" alt="Portrait of Nishant Kumar" class="profile-image">
+          <div class="hero-card-body">
+            <p class="card-label">Simple Setup</p>
+            <h2>Easy to update on GitHub Pages</h2>
+            <p>
+              Add projects in one file, keep your support option ready, and let users contact you
+              directly on WhatsApp without any backend.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2>Add projects from one file</h2>
+          <p>
+            The cards below are generated from <code>projects.json</code>. Add a new object there and the
+            website will render the card automatically.
+          </p>
+        </div>
+
+        <div class="project-grid" id="project-grid" aria-live="polite"></div>
+
+        <div class="empty-state" id="project-empty" hidden>
+          <h3>No projects added yet</h3>
+          <p>Add your first entry in <code>projects.json</code> and it will appear here automatically.</p>
+        </div>
+      </section>
+
+      <section class="section" id="donate">
+        <div class="section-heading">
+          <p class="eyebrow">Donate</p>
+          <h2>Open the support bot and pay with UPI</h2>
+          <p>
+            Click the button below and the support bot will open with a QR code, animated message,
+            amount control, and direct UPI app link.
+          </p>
+        </div>
+
+        <div class="donate-preview panel">
+          <div>
+            <p class="card-label">Support Flow</p>
+            <h3>Interactive and simple</h3>
+            <p class="preview-copy">
+              No extra page. No confusing redirect. The bot opens right on the website with your
+              payment amount, QR code, and direct UPI app button.
+            </p>
+            <div class="hero-points">
+              <span>Amount control</span>
+              <span>Dynamic QR</span>
+              <span>Direct UPI deeplink</span>
+            </div>
+          </div>
+          <button class="btn btn-primary donate-launch" type="button" data-open-donate>Launch Support Bot</button>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Send your reason on WhatsApp</h2>
+          <p>
+            Fill the form once. The site prepares a clean WhatsApp message with your reason and details.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <form class="contact-card panel" id="contact-form">
+            <div class="field">
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" type="text" placeholder="Your name" required>
+            </div>
+
+            <div class="field">
+              <label for="contact-reason">Reason</label>
+              <select id="contact-reason" name="reason" required>
+                <option value="">Select a reason</option>
+                <option value="Project Inquiry">Project Inquiry</option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="Website Support">Website Support</option>
+                <option value="General Contact">General Contact</option>
+              </select>
+            </div>
+
+            <div class="field field-full">
+              <label for="contact-details">Phone or email</label>
+              <input id="contact-details" name="details" type="text" placeholder="How should I reach you back?">
+            </div>
+
+            <div class="field field-full">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+            </div>
+
+            <div class="contact-actions">
+              <button class="btn btn-primary" type="submit">Send on WhatsApp</button>
+              <p class="form-note" id="contact-status">WhatsApp will open with your message ready to review.</p>
+            </div>
+          </form>
+
+          <aside class="contact-info panel">
+            <p class="card-label">Contact Flow</p>
+            <h3>Simple and backend-free</h3>
+            <ul>
+              <li>Your name, reason, and message are formatted automatically.</li>
+              <li>The site opens WhatsApp with a ready message.</li>
+              <li>You review once and send it from your own WhatsApp account.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Simple portfolio setup for GitHub Pages.</p>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="support-modal" hidden>
+    <div class="support-modal panel" role="dialog" aria-modal="true" aria-labelledby="support-title">
+      <button class="modal-close" type="button" id="close-support-modal" aria-label="Close support bot">Close</button>
+
+      <div class="support-layout">
+        <div class="bot-column">
+          <div class="support-bot" aria-hidden="true">
+            <div class="bot-halo"></div>
+            <div class="bot-antenna"></div>
+            <div class="bot-head">
+              <span class="bot-eye"></span>
+              <span class="bot-eye"></span>
+            </div>
+            <div class="bot-neck"></div>
+            <div class="bot-body"></div>
+            <div class="bot-ring"></div>
+            <div class="bot-shadow"></div>
+          </div>
+        </div>
+
+        <div class="support-content">
+          <p class="eyebrow">Support Bot</p>
+          <h2 id="support-title">Power the site with one quick payment</h2>
+          <p class="bot-dialogue" id="bot-dialogue" aria-live="polite"></p>
+
+          <div class="donate-bot-grid">
+            <div class="donate-card panel bot-card">
+              <label class="field-label" for="donation-amount">Enter amount</label>
+              <div class="amount-field">
+                <span aria-hidden="true">₹</span>
+                <input id="donation-amount" type="number" min="1" step="1" value="100" inputmode="numeric">
+              </div>
+              <div class="donate-actions">
+                <button class="btn btn-primary" id="generate-qr" type="button">Generate QR</button>
+                <a class="btn btn-secondary" id="upi-link" href="#" rel="noopener noreferrer">Pay via UPI App</a>
+              </div>
+              <p class="helper-text">The UPI ID stays hidden in the interface, but the QR and payment link keep working.</p>
+            </div>
+
+            <div class="qr-card panel bot-card">
+              <img id="qr-image" src="" alt="QR code for the selected UPI amount">
+              <div class="qr-details">
+                <p class="card-label">Current amount</p>
+                <strong id="donation-summary">₹100</strong>
+                <span>Scan in any UPI app or tap the payment button</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="ring" aria-hidden="true"></div>
-    <h1>Website Under Maintenance</h1>
-    <p class="subtitle">We are making some updates.</p>
-    <p class="message">Please check back soon.</p>
-    <div class="loading" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </main>
+  </div>
+
+  <template id="project-card-template">
+    <article class="project-card panel">
+      <div class="project-card-top">
+        <p class="card-label project-status"></p>
+        <h3 class="project-title"></h3>
+      </div>
+      <p class="project-summary"></p>
+      <div class="project-tags"></div>
+      <div class="project-actions">
+        <a class="btn btn-primary project-link">Open Project</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

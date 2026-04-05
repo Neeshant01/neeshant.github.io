@@ -1,0 +1,9 @@
+[
+  {
+    "status": "Project 01",
+    "title": "Chrome No Internet Game",
+    "summary": "A simple endless runner inspired by the Chrome offline game. Jump over obstacles, survive longer, and beat your best score.",
+    "stack": ["HTML", "CSS", "JavaScript", "Canvas"],
+    "liveUrl": "projects/chrome-no-internet-game.html"
+  }
+]

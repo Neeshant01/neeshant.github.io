@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome No Internet Game</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a0f19;
+      --panel: rgba(17, 24, 39, 0.92);
+      --text: #f6fbff;
+      --muted: #9bb0c9;
+      --primary: #65e7b1;
+      --accent: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(101, 231, 177, 0.16), transparent 25%),
+        linear-gradient(180deg, #060912 0%, #0b1220 100%);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    .shell {
+      width: min(980px, 100%);
+      margin: 0 auto;
+    }
+
+    .topbar,
+    .panel {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding: 16px 18px;
+    }
+
+    .topbar a,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .topbar a {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 62ch;
+    }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .stat {
+      min-width: 120px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      text-align: center;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+
+    .stat strong {
+      font-size: 1.35rem;
+    }
+
+    .canvas-wrap {
+      position: relative;
+      margin-top: 18px;
+      overflow: hidden;
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(28, 42, 73, 0.7), rgba(10, 16, 28, 0.95)),
+        #0a1020;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(6, 10, 18, 0.48);
+      backdrop-filter: blur(4px);
+      text-align: center;
+    }
+
+    .overlay[hidden] {
+      display: none;
+    }
+
+    .overlay-card {
+      width: min(100%, 360px);
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(9, 15, 24, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .overlay-card p {
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: #06111a;
+      font-weight: 700;
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+
+    .tips {
+      margin-top: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding: 16px;
+      }
+
+      .topbar,
+      .intro {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .topbar a,
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <a href="../index.html#projects">Back to Portfolio</a>
+      <button class="btn" id="restart-top" type="button">Restart Game</button>
+    </div>
+
+    <section class="panel">
+      <div class="intro">
+        <div>
+          <h1>Chrome No Internet Game</h1>
+          <p class="lead">
+            Jump over cacti, survive as long as possible, and beat your high score. Press space,
+            up arrow, tap the screen, or use the jump button on mobile.
+          </p>
+        </div>
+
+        <div class="scoreboard">
+          <div class="stat">
+            <span>Score</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="stat">
+            <span>Best</span>
+            <strong id="best-score">0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="game" width="900" height="320" aria-label="Endless runner game area"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="overlay-card">
+            <h2 id="overlay-title">Ready to run?</h2>
+            <p id="overlay-text">Press start and jump over the cacti. The speed rises as your score goes up.</p>
+            <div class="controls">
+              <button class="btn" id="start-button" type="button">Start Game</button>
+              <button class="btn secondary" id="jump-button" type="button">Jump</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="tips">
+        Tip: click or tap inside the game area any time to jump. When the game ends, start again and try to beat your best score.
+      </p>
+    </section>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const overlay = document.getElementById("overlay");
+    const overlayTitle = document.getElementById("overlay-title");
+    const overlayText = document.getElementById("overlay-text");
+    const startButton = document.getElementById("start-button");
+    const jumpButton = document.getElementById("jump-button");
+    const restartTop = document.getElementById("restart-top");
+    const scoreEl = document.getElementById("score");
+    const bestScoreEl = document.getElementById("best-score");
+
+    const groundY = 258;
+    const gravity = 0.66;
+    const jumpVelocity = -12.8;
+    const baseSpeed = 6.2;
+    const storageKey = "chrome-no-internet-best-score";
+
+    let animationId = 0;
+    let running = false;
+    let gameOver = false;
+    let score = 0;
+    let bestScore = Number(window.localStorage.getItem(storageKey) || 0);
+    let speed = baseSpeed;
+    let lastTimestamp = 0;
+    let spawnTimer = 0;
+    let clouds = [];
+    let obstacles = [];
+
+    const player = {
+      x: 84,
+      y: groundY - 50,
+      width: 46,
+      height: 50,
+      vy: 0,
+      grounded: true
+    };
+
+    bestScoreEl.textContent = bestScore;
+
+    function resetGame() {
+      running = false;
+      gameOver = false;
+      score = 0;
+      speed = baseSpeed;
+      spawnTimer = 0;
+      obstacles = [];
+      clouds = createClouds();
+      player.y = groundY - player.height;
+      player.vy = 0;
+      player.grounded = true;
+      scoreEl.textContent = "0";
+      overlayTitle.textContent = "Ready to run?";
+      overlayText.textContent = "Press start and jump over the cacti. The speed rises as your score goes up.";
+      overlay.hidden = false;
+      cancelAnimationFrame(animationId);
+      draw();
+    }
+
+    function createClouds() {
+      return Array.from({ length: 4 }, (_, index) => ({
+        x: 140 + index * 210,
+        y: 40 + (index % 2) * 36,
+        size: 24 + index * 3
+      }));
+    }
+
+    function jump() {
+      if (!running || !player.grounded) {
+        return;
+      }
+
+      player.vy = jumpVelocity;
+      player.grounded = false;
+    }
+
+    function startGame() {
+      if (running) {
+        return;
+      }
+
+      if (gameOver) {
+        resetGame();
+      }
+
+      overlay.hidden = true;
+      running = true;
+      lastTimestamp = 0;
+      animationId = requestAnimationFrame(loop);
+    }
+
+    function endGame() {
+      running = false;
+      gameOver = true;
+      if (score > bestScore) {
+        bestScore = score;
+        window.localStorage.setItem(storageKey, String(bestScore));
+        bestScoreEl.textContent = bestScore;
+      }
+
+      overlayTitle.textContent = "Game Over";
+      overlayText.textContent = "Obstacle hit. Press start to run again and beat your best score.";
+      overlay.hidden = false;
+      cancelAnimationFrame(animationId);
+    }
+
+    function spawnObstacle() {
+      const tall = Math.random() > 0.55;
+      obstacles.push({
+        x: canvas.width + 20,
+        width: tall ? 26 : 22,
+        height: tall ? 60 : 42
+      });
+    }
+
+    function update(delta) {
+      score += delta * 0.01;
+      speed = baseSpeed + score * 0.006;
+      scoreEl.textContent = Math.floor(score);
+
+      player.vy += gravity;
+      player.y += player.vy;
+
+      if (player.y >= groundY - player.height) {
+        player.y = groundY - player.height;
+        player.vy = 0;
+        player.grounded = true;
+      }
+
+      spawnTimer += delta;
+      if (spawnTimer > 1050 - Math.min(score * 1.8, 420)) {
+        spawnObstacle();
+        spawnTimer = 0;
+      }
+
+      obstacles.forEach((obstacle) => {
+        obstacle.x -= speed;
+      });
+      obstacles = obstacles.filter((obstacle) => obstacle.x + obstacle.width > -20);
+
+      clouds.forEach((cloud) => {
+        cloud.x -= speed * 0.18;
+        if (cloud.x < -60) {
+          cloud.x = canvas.width + Math.random() * 80;
+          cloud.y = 34 + Math.random() * 68;
+        }
+      });
+
+      const hit = obstacles.some((obstacle) => {
+        const obstacleY = groundY - obstacle.height;
+        return (
+          player.x < obstacle.x + obstacle.width &&
+          player.x + player.width > obstacle.x &&
+          player.y < obstacleY + obstacle.height &&
+          player.y + player.height > obstacleY
+        );
+      });
+
+      if (hit) {
+        endGame();
+      }
+    }
+
+    function drawCloud(cloud) {
+      ctx.fillStyle = "rgba(255,255,255,0.16)";
+      ctx.beginPath();
+      ctx.arc(cloud.x, cloud.y, cloud.size, 0, Math.PI * 2);
+      ctx.arc(cloud.x + cloud.size * 0.8, cloud.y + 4, cloud.size * 0.82, 0, Math.PI * 2);
+      ctx.arc(cloud.x - cloud.size * 0.75, cloud.y + 6, cloud.size * 0.72, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function drawPlayer() {
+      ctx.fillStyle = "#eef6ff";
+      ctx.fillRect(player.x, player.y, player.width, player.height);
+      ctx.fillStyle = "#07111e";
+      ctx.fillRect(player.x + 28, player.y + 10, 8, 8);
+      ctx.fillRect(player.x + 8, player.y + player.height, 8, 20);
+      ctx.fillRect(player.x + 28, player.y + player.height, 8, 20);
+      ctx.fillRect(player.x + player.width - 2, player.y + 12, 16, 8);
+      ctx.fillRect(player.x + 34, player.y + 20, 12, 6);
+    }
+
+    function drawObstacle(obstacle) {
+      const x = obstacle.x;
+      const y = groundY - obstacle.height;
+      ctx.fillStyle = "#65e7b1";
+      ctx.fillRect(x, y, obstacle.width, obstacle.height);
+      ctx.fillRect(x - 8, y + 18, 8, 10);
+      ctx.fillRect(x + obstacle.width, y + 24, 8, 10);
+    }
+
+    function drawGround() {
+      ctx.strokeStyle = "rgba(255,255,255,0.42)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, groundY + 20);
+      ctx.lineTo(canvas.width, groundY + 20);
+      ctx.stroke();
+
+      ctx.fillStyle = "rgba(255,255,255,0.16)";
+      for (let i = 0; i < canvas.width; i += 34) {
+        ctx.fillRect((i - (score * 0.5)) % canvas.width, groundY + 20, 16, 2);
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      sky.addColorStop(0, "rgba(31, 54, 95, 0.45)");
+      sky.addColorStop(1, "rgba(8, 12, 20, 0.95)");
+      ctx.fillStyle = sky;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      clouds.forEach(drawCloud);
+      drawGround();
+      drawPlayer();
+      obstacles.forEach(drawObstacle);
+    }
+
+    function loop(timestamp) {
+      if (!lastTimestamp) {
+        lastTimestamp = timestamp;
+      }
+
+      const delta = Math.min(timestamp - lastTimestamp, 32);
+      lastTimestamp = timestamp;
+
+      update(delta);
+      draw();
+
+      if (running) {
+        animationId = requestAnimationFrame(loop);
+      }
+    }
+
+    function handleAction() {
+      if (!running) {
+        startGame();
+      } else {
+        jump();
+      }
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.code === "Space" || event.code === "ArrowUp") {
+        event.preventDefault();
+        handleAction();
+      }
+    });
+
+    canvas.addEventListener("pointerdown", handleAction);
+    jumpButton.addEventListener("click", jump);
+    startButton.addEventListener("click", startGame);
+    restartTop.addEventListener("click", resetGame);
+
+    resetGame();
+  </script>
+</body>
+</html>
