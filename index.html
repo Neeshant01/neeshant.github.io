@@ -3,272 +3,379 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEON PHANTOM // Anime Hacker Universe</title>
+  <title>Nishant Kumar | Aspiring Software Engineer | Portfolio</title>
   <meta
     name="description"
-    content="NEON PHANTOM is a movie and anime inspired hacker website with Home, About, Services, Project, Donate, and Contact sections."
+    content="Nishant Kumar is a Class 12 student and aspiring software engineer building portfolio websites, Python tools, and automation projects."
+  >
+  <meta
+    name="keywords"
+    content="Nishant Kumar, portfolio, software engineer, web developer, Python developer, GitHub, student developer"
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@400;600;700;800&display=swap"
     rel="stylesheet"
   >
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="noise"></div>
   <canvas id="matrix-rain" aria-hidden="true"></canvas>
 
   <header class="site-header">
-    <a class="brand" href="#home">
-      <span class="brand-mark"></span>
-      <span class="brand-text">NEON PHANTOM</span>
-    </a>
+    <div class="shell header-shell">
+      <a class="brand" href="#home">
+        <span class="brand-mark"></span>
+        <span class="brand-copy">
+          <strong>Nishant Kumar</strong>
+          <small>Neeshant01</small>
+        </span>
+      </a>
 
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#project">Project</a>
-      <a href="#donate">Donate</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <nav class="nav" aria-label="Main Navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#connect">Connect</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero section" id="home">
-      <div class="hero-copy" data-reveal>
-        <p class="eyebrow">CITY GRID // ONLINE</p>
-        <h1>
-          Anime hacker style
-          <span>with cinematic neon energy.</span>
-        </h1>
-        <p class="lede">
-          NEON PHANTOM is a fictional underground signal built for people who love
-          midnight terminals, digital rain, anime tension, and futuristic hacker aesthetics.
-        </p>
+  <main id="main-content">
+    <section class="section hero" id="home">
+      <div class="shell hero-shell">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">Personal Portfolio</p>
+          <h1>
+            Nishant Kumar
+            <span>Aspiring Software Engineer &amp; Web Developer</span>
+          </h1>
+          <p class="lede">
+            I am a Class 12 student building my path toward software engineering
+            through real projects in web development, Python, and automation.
+            I enjoy turning ideas into working products with clean design and strong energy.
+          </p>
 
-        <div class="hero-actions">
-          <a class="button primary" href="#project">Watch The Project</a>
-          <a class="button secondary" href="#donate">Support The Signal</a>
-        </div>
-
-        <div class="hero-tags">
-          <span>Cyberpunk Mood</span>
-          <span>Anime UI Language</span>
-          <span>Movie Trailer Vibe</span>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat-chip">
-            <strong data-count="12">0</strong>
-            <span>active scenes</span>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View Projects</a>
+            <a class="button secondary" href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/nishant-kumar-423870291/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
-          <div class="stat-chip">
-            <strong data-count="24">0</strong>
-            <span>signal drops</span>
-          </div>
-          <div class="stat-chip">
-            <strong data-count="99">0</strong>
-            <span>neon intensity</span>
+
+          <div class="hero-stats">
+            <div class="stat-chip">
+              <strong data-count="03">0</strong>
+              <span>featured builds</span>
+            </div>
+            <div class="stat-chip">
+              <strong data-count="04">0</strong>
+              <span>focus areas</span>
+            </div>
+            <div class="stat-chip">
+              <strong data-count="12">0</strong>
+              <span>class level</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="hero-panel terminal" data-reveal>
-        <div class="terminal-bar">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div class="hero-stack" data-reveal>
+          <figure class="portrait-card">
+            <img
+              class="portrait-image"
+              src="profile-photo.jpg"
+              alt="Portrait of Nishant Kumar"
+            >
+            <figcaption>Student developer building a real software engineering portfolio.</figcaption>
+          </figure>
 
-        <div class="terminal-body">
-          <p class="terminal-label">phantom console</p>
-          <div class="terminal-output" id="terminal-output">
-            <p>&gt; syncing night-city overlays...</p>
-            <p>&gt; loading phantom masks and signal ghosts...</p>
-            <p>&gt; calibrating cinematic glitch engine...</p>
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="terminal-body">
+              <p class="terminal-label">portfolio.console</p>
+              <div class="terminal-output" id="terminal-output">
+                <p>&gt; loading nishant_kumar.profile...</p>
+                <p>&gt; syncing github://Neeshant01...</p>
+                <p>&gt; publishing a stronger personal portfolio identity...</p>
+              </div>
+              <div class="terminal-input">
+                <span>portfolio@neon:~$</span>
+                <span id="typed-command"></span>
+                <span class="cursor"></span>
+              </div>
+            </div>
           </div>
-          <div class="terminal-input">
-            <span>ghost@neon-city:~$</span>
-            <span id="typed-command"></span>
-            <span class="cursor"></span>
+
+          <div class="signal-grid">
+            <article class="signal-card">
+              <span>Based In</span>
+              <strong>Bihar, India</strong>
+            </article>
+            <article class="signal-card">
+              <span>Core Skills</span>
+              <strong>HTML, CSS, Python, GitHub</strong>
+            </article>
+            <article class="signal-card">
+              <span>Also Into</span>
+              <strong>YouTube, Editing, AI Tools</strong>
+            </article>
+            <article class="signal-card">
+              <span>Goal</span>
+              <strong>Internships &amp; real-world projects</strong>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section strip" data-reveal>
-      <p>digital rain</p>
-      <p>anime tension</p>
-      <p>rogue city lights</p>
-      <p>phantom code</p>
-      <p>midnight broadcast</p>
+    <section class="section strip-section">
+      <div class="shell strip" data-reveal>
+        <p>student developer</p>
+        <p>portfolio websites</p>
+        <p>python automation</p>
+        <p>github building</p>
+        <p>learning in public</p>
+      </div>
     </section>
 
     <section class="section about-section" id="about">
-      <div class="section-copy" data-reveal>
-        <p class="eyebrow">ABOUT</p>
-        <h2>A fictional signal from a neon city that never sleeps.</h2>
-        <p>
-          This website is built around the feeling of a hacker scene from a sci-fi
-          movie or anime opening. It mixes dark city tones, glowing interface cards,
-          digital motion, and a dramatic screen presence that feels stylized instead of plain.
-        </p>
-      </div>
+      <div class="shell two-column">
+        <div class="section-copy" data-reveal>
+          <p class="eyebrow">About Me</p>
+          <h2>Building from curiosity, discipline, and real practice.</h2>
+          <p>
+            I am Nishant Kumar, a student who is serious about becoming a software engineer.
+            I like building projects that help me learn by doing, especially websites,
+            Python-based tools, and automation ideas connected to real use cases.
+          </p>
+          <p>
+            My portfolio now keeps the bold cyber visual style I enjoy, but it is centered
+            on my real identity, my work, and the skills I want to grow professionally.
+          </p>
+        </div>
 
-      <div class="story-panel" data-reveal>
-        <p class="story-kicker">Broadcast Log</p>
-        <p class="story-line">
-          "When the skyline goes silent, the phantom channel wakes up."
-        </p>
-        <p class="story-note">
-          Crafted as a visual world: terminals, glitch overlays, sharp typography, and
-          a clean one-page structure with the exact sections you asked for.
-        </p>
+        <div class="about-panel" data-reveal>
+          <article class="info-card">
+            <span class="info-label">Current Focus</span>
+            <strong>Software Engineering, Frontend Basics, Python Projects</strong>
+          </article>
+          <article class="info-card">
+            <span class="info-label">Learning Style</span>
+            <strong>Build projects, improve fast, and share the progress openly</strong>
+          </article>
+          <article class="info-card">
+            <span class="info-label">Strengths</span>
+            <strong>Consistency, curiosity, communication, and visual presentation</strong>
+          </article>
+          <article class="info-card">
+            <span class="info-label">Looking For</span>
+            <strong>Internships, collaborations, and chances to grow with real teams</strong>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section services-section" id="services">
-      <div class="section-copy" data-reveal>
-        <p class="eyebrow">SERVICES</p>
-        <h2>Designed like a hacker anime interface, section by section.</h2>
-      </div>
+      <div class="shell">
+        <div class="section-copy" data-reveal>
+          <p class="eyebrow">Services</p>
+          <h2>What I can build and improve right now.</h2>
+        </div>
 
-      <div class="cards">
-        <article class="card" data-reveal>
-          <span class="card-index">01</span>
-          <h3>Neon Interface Design</h3>
-          <p>Glow-rich layouts, scanline textures, and cinematic composition for a bold hacker look.</p>
-        </article>
+        <div class="cards">
+          <article class="card" data-reveal>
+            <span class="card-index">01</span>
+            <h3>Frontend Website Builds</h3>
+            <p>I create clean landing pages and portfolio-style websites with strong visual direction using HTML, CSS, and JavaScript basics.</p>
+          </article>
 
-        <article class="card" data-reveal>
-          <span class="card-index">02</span>
-          <h3>Terminal Motion</h3>
-          <p>Animated command lines, rising counters, and digital rain that make the page feel alive.</p>
-        </article>
+          <article class="card" data-reveal>
+            <span class="card-index">02</span>
+            <h3>Python Automation Projects</h3>
+            <p>I experiment with Python tools and automation workflows that save time and turn ideas into useful scripts.</p>
+          </article>
 
-        <article class="card" data-reveal>
-          <span class="card-index">03</span>
-          <h3>Anime Worldbuilding</h3>
-          <p>Section copy that feels like a futuristic story universe instead of generic website filler.</p>
-        </article>
+          <article class="card" data-reveal>
+            <span class="card-index">03</span>
+            <h3>AI-Powered Tool Experiments</h3>
+            <p>I enjoy building projects around modern AI workflows, especially automation systems and content-related tools.</p>
+          </article>
 
-        <article class="card" data-reveal>
-          <span class="card-index">04</span>
-          <h3>Responsive Experience</h3>
-          <p>A strong desktop and mobile presentation so the vibe survives on every screen size.</p>
-        </article>
+          <article class="card" data-reveal>
+            <span class="card-index">04</span>
+            <h3>Content &amp; Presentation</h3>
+            <p>I also work with YouTube-oriented content and editing, which helps me present technical work in a clearer and more engaging way.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section project-section" id="project">
-      <div class="project-main" data-reveal>
-        <p class="eyebrow">PROJECT</p>
-        <h2>Project: Phantom Signal</h2>
-        <p>
-          A cinematic one-page experience that feels like the title screen of a cyberpunk film.
-          The project combines a neon hero, story-driven cards, ambient motion, and a donation call
-          for fans who want to keep the signal alive.
-        </p>
+    <section class="section projects-section" id="projects">
+      <div class="shell">
+        <div class="section-copy" data-reveal>
+          <p class="eyebrow">Projects</p>
+          <h2>Real builds that show how I learn and ship work.</h2>
+        </div>
 
         <div class="project-grid">
-          <div class="project-card">
-            <span>Visual Mode</span>
-            <strong>Movie + Anime</strong>
-          </div>
-          <div class="project-card">
-            <span>Theme</span>
-            <strong>Hacker Universe</strong>
-          </div>
-          <div class="project-card">
-            <span>Structure</span>
-            <strong>Single Page Flow</strong>
-          </div>
+          <article class="project-card" data-reveal>
+            <p class="project-kicker">Featured Project</p>
+            <h3>Auto-YT</h3>
+            <p>
+              An AI-powered YouTube automation system using Google Gemini API for topic discovery,
+              content generation, metadata creation, and publishing workflows.
+            </p>
+            <div class="tag-row">
+              <span>Express</span>
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Gemini API</span>
+            </div>
+            <div class="project-links">
+              <a class="button secondary" href="https://github.com/Neeshant01/auto-yt" target="_blank" rel="noreferrer">GitHub Repo</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <p class="project-kicker">Python Build</p>
+            <h3>Desi-Jarvis</h3>
+            <p>
+              A Python-based assistant project that reflects my interest in interactive tools,
+              utility scripts, and learning through experimentation.
+            </p>
+            <div class="tag-row">
+              <span>Python</span>
+              <span>Automation</span>
+              <span>Experiments</span>
+            </div>
+            <div class="project-links">
+              <a class="button secondary" href="https://github.com/Neeshant01/desi-jarvis" target="_blank" rel="noreferrer">GitHub Repo</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <p class="project-kicker">Live Portfolio</p>
+            <h3>Personal Portfolio</h3>
+            <p>
+              The website you are viewing now. It combines a strong cyber-inspired visual identity
+              with real information about my skills, goals, and work.
+            </p>
+            <div class="tag-row">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Responsive UI</span>
+            </div>
+            <div class="project-links">
+              <a class="button secondary" href="https://github.com/Neeshant01/neeshant01.github.io" target="_blank" rel="noreferrer">GitHub Repo</a>
+              <a class="button primary" href="https://neeshant01.github.io/" target="_blank" rel="noreferrer">Live Site</a>
+            </div>
+          </article>
+
+          <article class="project-card roadmap-card" data-reveal>
+            <p class="project-kicker">Next Up</p>
+            <h3>More Projects Coming</h3>
+            <p>
+              I am actively improving my GitHub profile and adding stronger public projects over time.
+              This portfolio will keep growing as I build better work.
+            </p>
+            <div class="tag-row">
+              <span>Growth</span>
+              <span>Learning</span>
+              <span>Consistency</span>
+            </div>
+            <div class="project-links">
+              <a class="button secondary" href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">Open GitHub</a>
+            </div>
+          </article>
         </div>
       </div>
-
-      <aside class="timeline-panel" data-reveal>
-        <p class="timeline-title">Scene Sequence</p>
-        <div class="timeline-item">
-          <span>01</span>
-          <p>Home opens with terminal energy and a full-screen neon presence.</p>
-        </div>
-        <div class="timeline-item">
-          <span>02</span>
-          <p>About and Services deepen the universe and explain the visual language.</p>
-        </div>
-        <div class="timeline-item">
-          <span>03</span>
-          <p>Project, Donate, and Contact close the page like a final transmission.</p>
-        </div>
-      </aside>
     </section>
 
-    <section class="section donate-section" id="donate">
-      <div class="section-copy" data-reveal>
-        <p class="eyebrow">DONATE</p>
-        <h2>Keep the phantom channel running.</h2>
-        <p>
-          Support the project like a fan backing an independent cyberpunk universe.
-          The buttons are styled as donation tiers and can be connected to real payment links later.
-        </p>
-      </div>
+    <section class="section connect-section" id="connect">
+      <div class="shell">
+        <div class="section-copy" data-reveal>
+          <p class="eyebrow">Connect</p>
+          <h2>Find me where I learn, build, and share my work.</h2>
+        </div>
 
-      <div class="donate-grid">
-        <article class="donate-card" data-reveal>
-          <p class="donate-label">Signal Drop</p>
-          <strong>$5</strong>
-          <span>For small support and good energy.</span>
-          <button class="button secondary donate-button" type="button">Support Signal</button>
-        </article>
+        <div class="connect-grid">
+          <article class="connect-card" data-reveal>
+            <p class="connect-label">GitHub</p>
+            <strong>Neeshant01</strong>
+            <span>Explore my repositories, project progress, and coding activity.</span>
+            <a class="button secondary" href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">Open GitHub</a>
+          </article>
 
-        <article class="donate-card featured" data-reveal>
-          <p class="donate-label">Phantom Core</p>
-          <strong>$25</strong>
-          <span>For fans who want to power the main broadcast.</span>
-          <button class="button primary donate-button" type="button">Boost The Core</button>
-        </article>
+          <article class="connect-card featured" data-reveal>
+            <p class="connect-label">LinkedIn</p>
+            <strong>Nishant Kumar</strong>
+            <span>See my professional profile, career direction, and future growth path.</span>
+            <a class="button primary" href="https://www.linkedin.com/in/nishant-kumar-423870291/" target="_blank" rel="noreferrer">Open LinkedIn</a>
+          </article>
 
-        <article class="donate-card" data-reveal>
-          <p class="donate-label">Night City Backer</p>
-          <strong>$50</strong>
-          <span>For supporters funding the next scene and visual upgrades.</span>
-          <button class="button secondary donate-button" type="button">Fund Next Scene</button>
-        </article>
+          <article class="connect-card" data-reveal>
+            <p class="connect-label">Career Goal</p>
+            <strong>Software Engineering Opportunities</strong>
+            <span>I am looking to keep improving through internships, collaborations, and serious project work.</span>
+            <a class="button secondary" href="#contact">Go To Contact</a>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section contact-section" id="contact">
-      <div class="contact-copy" data-reveal>
-        <p class="eyebrow">CONTACT</p>
-        <h2>Send a message through the neon channel.</h2>
-        <p>
-          Use this section for inquiries, collaborations, fan messages, or future project requests.
-        </p>
-      </div>
+      <div class="shell two-column">
+        <div class="contact-copy" data-reveal>
+          <p class="eyebrow">Contact</p>
+          <h2>Let&apos;s connect for projects, internships, or collaborations.</h2>
+          <p>
+            If you want to talk about web development, Python projects, student growth,
+            or future work, the best way to reach me right now is through GitHub or LinkedIn.
+          </p>
+        </div>
 
-      <form class="contact-form" data-reveal>
-        <label>
-          Name
-          <input type="text" name="name" placeholder="Your name">
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" placeholder="you@example.com">
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="5" placeholder="Write your message here..."></textarea>
-        </label>
-        <button class="button primary" type="submit">Send Message</button>
-      </form>
+        <div class="contact-panel" data-reveal>
+          <div class="contact-row">
+            <span>Portfolio</span>
+            <a href="https://neeshant01.github.io/" target="_blank" rel="noreferrer">neeshant01.github.io</a>
+          </div>
+          <div class="contact-row">
+            <span>GitHub</span>
+            <a href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">github.com/Neeshant01</a>
+          </div>
+          <div class="contact-row">
+            <span>LinkedIn</span>
+            <a href="https://www.linkedin.com/in/nishant-kumar-423870291/" target="_blank" rel="noreferrer">linkedin.com/in/nishant-kumar-423870291</a>
+          </div>
+          <div class="contact-row">
+            <span>Location</span>
+            <p>Bihar, India</p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button primary" href="https://www.linkedin.com/in/nishant-kumar-423870291/" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+            <a class="button secondary" href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">View GitHub</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>NEON PHANTOM // movie-inspired anime hacker visuals for a cinematic one-page experience.</p>
+    <div class="shell footer-shell">
+      <p>Built for Nishant Kumar with a cyber-inspired visual style and a real personal portfolio focus.</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>

@@ -1,10 +1,8 @@
-const commandText = "boot phantom_scene --city neon-tokyo --mode cinematic";
+const commandText = 'render_portfolio --owner "nishant-kumar" --theme neon-personal';
 const typedCommand = document.getElementById("typed-command");
 const terminalOutput = document.getElementById("terminal-output");
 const counterNodes = document.querySelectorAll("[data-count]");
 const revealNodes = document.querySelectorAll("[data-reveal]");
-const form = document.querySelector(".contact-form");
-const donateButtons = document.querySelectorAll(".donate-button");
 
 function typeCommand(text, index = 0) {
   if (!typedCommand) {
@@ -14,11 +12,11 @@ function typeCommand(text, index = 0) {
   typedCommand.textContent = text.slice(0, index);
 
   if (index < text.length) {
-    setTimeout(() => typeCommand(text, index + 1), 45);
+    setTimeout(() => typeCommand(text, index + 1), 42);
     return;
   }
 
-  setTimeout(addTerminalLines, 600);
+  setTimeout(addTerminalLines, 650);
 }
 
 function addTerminalLines() {
@@ -27,9 +25,9 @@ function addTerminalLines() {
   }
 
   const lines = [
-    "> scene core synced with skyline lights...",
-    "> phantom masks rendered across the grid...",
-    "> final broadcast ready for the opening frame.",
+    "> personal branding layer applied successfully...",
+    "> projects linked to live GitHub profile...",
+    "> portfolio broadcast ready for recruiters and collaborators.",
   ];
 
   lines.forEach((line, index) => {
@@ -81,29 +79,6 @@ function setupReveal() {
   revealNodes.forEach((node) => observer.observe(node));
 }
 
-function setupForm() {
-  if (!form) {
-    return;
-  }
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const button = form.querySelector("button");
-    if (button) {
-      button.textContent = "Message Sent";
-    }
-  });
-}
-
-function setupDonateButtons() {
-  donateButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      button.textContent = "Signal Locked";
-    });
-  });
-}
-
 function setupMatrixRain() {
   const canvas = document.getElementById("matrix-rain");
   if (!(canvas instanceof HTMLCanvasElement)) {
@@ -128,7 +103,7 @@ function setupMatrixRain() {
   }
 
   function draw() {
-    context.fillStyle = "rgba(4, 3, 15, 0.14)";
+    context.fillStyle = "rgba(4, 5, 15, 0.14)";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     context.font = `${fontSize}px "JetBrains Mono", monospace`;
@@ -138,7 +113,7 @@ function setupMatrixRain() {
       const x = index * fontSize;
       const y = drop * fontSize;
 
-      context.fillStyle = Math.random() > 0.85 ? "#ff5ac8" : "#73ecff";
+      context.fillStyle = Math.random() > 0.84 ? "#ff5db7" : "#76ecff";
       context.fillText(glyph, x, y);
 
       if (y > canvas.height && Math.random() > 0.975) {
@@ -157,8 +132,6 @@ function setupMatrixRain() {
 }
 
 setupReveal();
-setupForm();
-setupDonateButtons();
 setupMatrixRain();
 typeCommand(commandText);
 
