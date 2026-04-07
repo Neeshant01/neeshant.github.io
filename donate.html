@@ -6,20 +6,20 @@
   <title>Donate | Nishant Kumar</title>
   <meta
     name="description"
-    content="Donate for Nishant Kumar with live UPI QR and amount-based updates."
+    content="Support Nishant Kumar with a direct UPI donation flow."
   >
   <meta
     name="keywords"
-    content="Nishant Kumar donate, UPI QR, donate"
+    content="Nishant Kumar donate, UPI donate, support the build"
   >
   <meta property="og:title" content="Donate | Nishant Kumar">
   <meta
     property="og:description"
-    content="Live UPI QR, comic motion, and amount-based donate flow."
+    content="Support the build with a clean UPI QR flow."
   >
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neeshant01.github.io/donate.html">
-  <meta property="og:image" content="https://neeshant01.github.io/donation-photo.png">
+  <meta property="og:image" content="https://neeshant01.github.io/main-photo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -37,14 +37,10 @@
   <header class="site-header">
     <div class="shell header-shell">
       <a class="brand" href="index.html#home">
-        <img
-          class="brand-avatar"
-          src="profile-photo.jpg"
-          alt="Nishant Kumar"
-        >
+        <img class="brand-avatar" src="profile-photo.jpg" alt="Nishant Kumar">
         <span class="brand-copy">
           <strong>Nishant Kumar</strong>
-          <small>Donate</small>
+          <small>Support the build</small>
         </span>
       </a>
 
@@ -62,8 +58,8 @@
 
       <nav class="nav" id="site-nav" aria-label="Main Navigation">
         <a href="index.html#home">Home</a>
-        <a href="index.html#about">About</a>
         <a href="index.html#projects">Projects</a>
+        <a href="games.html">Games</a>
         <a href="donate.html" aria-current="page">Donate</a>
         <a href="index.html#contact">Contact</a>
       </nav>
@@ -73,18 +69,20 @@
   <main id="main-content">
     <section class="section donate-page-section" id="donate">
       <div class="shell donate-page-shell">
-        <div class="donate-hero" data-reveal>
-          <p class="eyebrow">Donate</p>
-          <h1 class="page-title" id="donate-heading">Amount chuno.</h1>
-          <p class="lede" id="donate-lede">QR ready karo. Bas.</p>
+        <div class="section-copy donate-copy" data-reveal>
+          <p class="eyebrow">Support</p>
+          <h1>Support the next build.</h1>
+          <p class="lede">
+            Pick an amount, scan the QR, or open UPI directly. The flow stays simple and the page stays focused.
+          </p>
         </div>
 
         <div class="donate-page-grid">
           <article class="comic-panel" data-reveal>
             <div class="comic-stage" id="comic-stage">
-              <span class="comic-sticker comic-sticker-top" id="comic-sticker-top">TAP</span>
-              <span class="comic-sticker comic-sticker-side" id="comic-sticker-side">SCAN</span>
-              <div class="comic-speech" id="comic-speech">10 dabao. Dekho kaise panel hilta hai.</div>
+              <span class="comic-sticker comic-sticker-top" id="comic-sticker-top">READY</span>
+              <span class="comic-sticker comic-sticker-side" id="comic-sticker-side">UPI</span>
+              <div class="comic-speech" id="comic-speech">Choose an amount and the panel will update.</div>
               <div class="comic-spark comic-spark-one"></div>
               <div class="comic-spark comic-spark-two"></div>
               <div class="comic-mascot" id="comic-mascot">
@@ -99,10 +97,10 @@
               </div>
             </div>
             <div class="comic-copy">
-              <p class="bot-label">Comic Panel</p>
-              <h3 id="comic-title">Abhi panel chup hai.</h3>
-              <p id="comic-copy">Button badlo. Iska mood bhi badlega.</p>
-              <p class="donation-nudge" id="donation-nudge">Ek tap aur dekh.</p>
+              <p class="bot-label">Support Panel</p>
+              <h3 id="comic-title">Quick support. Clean flow.</h3>
+              <p id="comic-copy">Small support helps fund more builds, more polish, and more time spent shipping.</p>
+              <p class="donation-nudge" id="donation-nudge">Pick an amount to update the panel.</p>
             </div>
           </article>
 
@@ -110,19 +108,19 @@
             <div class="donation-amounts">
               <button class="amount-card active" type="button" data-amount="10">
                 <strong>10</strong>
-                <span>chai</span>
+                <span>Quick tap</span>
               </button>
               <button class="amount-card" type="button" data-amount="20">
                 <strong>20</strong>
-                <span>boost</span>
+                <span>Coffee boost</span>
               </button>
               <button class="amount-card" type="button" data-amount="50">
                 <strong>50</strong>
-                <span>scene</span>
+                <span>Extra support</span>
               </button>
               <button class="amount-card" type="button" data-amount="100">
                 <strong>100</strong>
-                <span>hero</span>
+                <span>Big push</span>
               </button>
             </div>
 
@@ -134,16 +132,16 @@
                 min="1"
                 step="1"
                 inputmode="numeric"
-                placeholder="Apni marzi"
+                placeholder="Enter amount"
               >
             </label>
 
             <div class="donation-message-box">
-              <p class="donation-kicker" id="donation-kicker">Rs 10 ready.</p>
-              <p class="donation-text" id="donation-text">QR bhi ready. UPI bhi ready.</p>
+              <p class="donation-kicker" id="donation-kicker">Rs 10 selected.</p>
+              <p class="donation-text" id="donation-text">A quick support tap keeps the build moving.</p>
               <div class="donation-actions">
                 <a class="button primary donate-cta" id="open-upi" href="#">Open UPI</a>
-                <button class="button secondary" id="copy-upi" type="button">Copy UPI</button>
+                <button class="button secondary" id="copy-upi" type="button">Copy UPI ID</button>
               </div>
               <span class="donation-selected" id="selected-amount-label">Rs 10</span>
             </div>
@@ -155,13 +153,11 @@
               <div class="qr-copy">
                 <span class="info-label">UPI ID</span>
                 <strong id="upi-id">NEESHANT01@PNB</strong>
-                <p id="qr-caption">QR ready.</p>
+                <p id="qr-caption">QR updates instantly with the selected amount.</p>
               </div>
             </div>
           </section>
         </div>
-
-        <p class="donate-bottom-line" id="donate-bottom-line">Neeche se mat niklo. Ek aur tap maaro.</p>
       </div>
     </section>
   </main>
@@ -169,12 +165,12 @@
   <div class="thanks-overlay" id="thanks-overlay" hidden aria-hidden="true">
     <div class="thanks-modal">
       <button class="thanks-close" id="thanks-close" type="button" aria-label="Close">×</button>
-      <p class="thanks-badge" id="thanks-badge">WELCOME BACK</p>
-      <h2 id="thanks-overlay-title">Wapas aa gaye.</h2>
-      <p id="thanks-overlay-text">Panel ne dekh liya.</p>
-      <p id="thanks-overlay-nudge">Dil kare to ek aur round maar do.</p>
+      <p class="thanks-badge">THANK YOU</p>
+      <h2 id="thanks-overlay-title">Support flow complete.</h2>
+      <p id="thanks-overlay-text">If the payment went through, thank you for backing the work.</p>
+      <p id="thanks-overlay-nudge">You can close this and head back to the arcade anytime.</p>
       <div class="thanks-overlay-actions">
-        <button class="button primary" id="thanks-donate-again" type="button">Donate</button>
+        <a class="button primary" href="games.html">Open Games</a>
         <button class="button secondary" id="thanks-dismiss" type="button">Close</button>
       </div>
     </div>
@@ -184,11 +180,12 @@
     <div class="shell footer-quick-links">
       <a class="button secondary" href="index.html#home">Home</a>
       <a class="button secondary" href="index.html#projects">Projects</a>
+      <a class="button secondary" href="games.html">Games</a>
       <a class="button secondary" href="donate.html">Donate</a>
       <a class="button secondary" href="index.html#contact">Contact</a>
     </div>
     <div class="shell footer-bottom">
-      <p id="footer-bottom-line">Exit line.</p>
+      <p id="footer-bottom-line">Support helps fund new builds, more polish, and more playable ideas.</p>
     </div>
   </footer>
 
