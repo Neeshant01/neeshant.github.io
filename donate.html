@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support Nishant Kumar | Donate</title>
+  <title>Donate | Nishant Kumar</title>
   <meta
     name="description"
-    content="Support Nishant Kumar through a dedicated comic-style donation page with live UPI QR generation and custom amount support."
+    content="Donate for Nishant Kumar with live UPI QR and amount-based updates."
   >
   <meta
     name="keywords"
-    content="Nishant Kumar donate, UPI QR, support page, portfolio support, comic donate page"
+    content="Nishant Kumar donate, UPI QR, donate"
   >
-  <meta property="og:title" content="Support Nishant Kumar | Donate">
+  <meta property="og:title" content="Donate | Nishant Kumar">
   <meta
     property="og:description"
-    content="A dedicated support page with comic-style motion, live QR generation, and UPI donation actions."
+    content="Live UPI QR, comic motion, and amount-based donate flow."
   >
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neeshant01.github.io/donate.html">
@@ -26,7 +26,7 @@
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@400;600;700;800&display=swap"
     rel="stylesheet"
   >
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon-photo.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="donate">
@@ -37,10 +37,14 @@
   <header class="site-header">
     <div class="shell header-shell">
       <a class="brand" href="index.html#home">
-        <span class="brand-mark" aria-hidden="true">NK</span>
+        <img
+          class="brand-avatar"
+          src="profile-photo.jpg"
+          alt="Nishant Kumar"
+        >
         <span class="brand-copy">
           <strong>Nishant Kumar</strong>
-          <small>Aspiring Software Engineer</small>
+          <small>Donate</small>
         </span>
       </a>
 
@@ -69,65 +73,56 @@
   <main id="main-content">
     <section class="section donate-page-section" id="donate">
       <div class="shell donate-page-shell">
-        <div class="section-copy donate-page-copy" data-reveal>
-          <p class="eyebrow">Support Page</p>
-          <h1 class="page-title">Support the build without clutter, confusion, or fake payment drama.</h1>
-          <p class="lede">
-            Ye page simple hai: amount choose karo, custom amount chaho to likho, QR scan karo ya UPI app kholo,
-            aur agar mann kare to thoda support bhej do.
-          </p>
-          <div class="support-pills">
-            <span class="support-pill">Comic motion</span>
-            <span class="support-pill">Live QR</span>
-            <span class="support-pill">Custom amount</span>
-          </div>
+        <div class="donate-hero" data-reveal>
+          <p class="eyebrow">Donate</p>
+          <h1 class="page-title" id="donate-heading">Amount chuno.</h1>
+          <p class="lede" id="donate-lede">QR ready karo. Bas.</p>
         </div>
 
         <div class="donate-page-grid">
           <article class="comic-panel" data-reveal>
-            <div class="comic-stage">
-              <span class="comic-sticker comic-sticker-top">POW</span>
-              <span class="comic-sticker comic-sticker-side">SCAN</span>
-              <div class="comic-speech">Bhai 10 se start karo, vibe khud upgrade ho jayegi.</div>
+            <div class="comic-stage" id="comic-stage">
+              <span class="comic-sticker comic-sticker-top" id="comic-sticker-top">TAP</span>
+              <span class="comic-sticker comic-sticker-side" id="comic-sticker-side">SCAN</span>
+              <div class="comic-speech" id="comic-speech">10 dabao. Dekho kaise panel hilta hai.</div>
               <div class="comic-spark comic-spark-one"></div>
               <div class="comic-spark comic-spark-two"></div>
-              <div class="comic-mascot">
+              <div class="comic-mascot" id="comic-mascot">
                 <div class="comic-head">
                   <span class="comic-eye"></span>
                   <span class="comic-eye"></span>
                   <span class="comic-mouth"></span>
                 </div>
                 <div class="comic-body">
-                  <span class="comic-core">DONATE</span>
+                  <span class="comic-core" id="comic-core">Rs 10</span>
                 </div>
               </div>
             </div>
             <div class="comic-copy">
-              <p class="bot-label">Comic Support Unit</p>
-              <h3>No weird robot. Bas ek bold comic vibe jo page ko alive rakhe.</h3>
-              <p>
-                Chhota amount bhi chalega. Target bas itna hai ki support flow clean ho, fun ho, aur kaam ka ho.
-              </p>
+              <p class="bot-label">Comic Panel</p>
+              <h3 id="comic-title">Abhi panel chup hai.</h3>
+              <p id="comic-copy">Button badlo. Iska mood bhi badlega.</p>
+              <p class="donation-nudge" id="donation-nudge">Ek tap aur dekh.</p>
             </div>
           </article>
 
           <section class="donation-panel" data-reveal data-donate-page>
             <div class="donation-amounts">
-              <button class="amount-card active" type="button" data-amount="10" data-title="Rs 10 se smile aa jayegi" data-pitch="Bas 10 bhejo. Itna support bhi comic panel ko happy mode me daal dega.">
+              <button class="amount-card active" type="button" data-amount="10">
                 <strong>10</strong>
-                <span>chai mode</span>
+                <span>chai</span>
               </button>
-              <button class="amount-card" type="button" data-amount="20" data-title="Rs 20 se energy double" data-pitch="20 ka support matlab respect bhi aur thoda aur coding fuel bhi.">
+              <button class="amount-card" type="button" data-amount="20">
                 <strong>20</strong>
-                <span>boost mode</span>
+                <span>boost</span>
               </button>
-              <button class="amount-card" type="button" data-amount="50" data-title="Rs 50 se scene strong" data-pitch="50 bheja to aaj ka support proper solid category me chala jayega.">
+              <button class="amount-card" type="button" data-amount="50">
                 <strong>50</strong>
-                <span>power mode</span>
+                <span>scene</span>
               </button>
-              <button class="amount-card" type="button" data-amount="100" data-title="Rs 100 wale log hero hote hain" data-pitch="100 ka support seedha comic legend lane me jata hai.">
+              <button class="amount-card" type="button" data-amount="100">
                 <strong>100</strong>
-                <span>hero mode</span>
+                <span>hero</span>
               </button>
             </div>
 
@@ -139,79 +134,61 @@
                 min="1"
                 step="1"
                 inputmode="numeric"
-                placeholder="Apni marzi ka amount likho"
+                placeholder="Apni marzi"
               >
             </label>
 
             <div class="donation-message-box">
-              <p class="donation-kicker" id="donation-kicker">Rs 10 se smile aa jayegi</p>
-              <p class="donation-text" id="donation-text">Bas 10 bhejo. Itna support bhi comic panel ko happy mode me daal dega.</p>
+              <p class="donation-kicker" id="donation-kicker">Rs 10 ready.</p>
+              <p class="donation-text" id="donation-text">QR bhi ready. UPI bhi ready.</p>
               <div class="donation-actions">
-                <a class="button primary donate-cta" id="open-upi" href="#">Open UPI App</a>
-                <button class="button secondary" id="copy-upi" type="button">Copy UPI ID</button>
+                <a class="button primary donate-cta" id="open-upi" href="#">Open UPI</a>
+                <button class="button secondary" id="copy-upi" type="button">Copy UPI</button>
               </div>
-              <span class="donation-selected" id="selected-amount-label">Selected: Rs 10</span>
+              <span class="donation-selected" id="selected-amount-label">Rs 10</span>
             </div>
 
-            <div class="qr-shell" data-reveal>
+            <div class="qr-shell">
               <div class="qr-code-wrap">
                 <div id="qr-code" class="qr-code" aria-label="UPI QR code"></div>
               </div>
               <div class="qr-copy">
                 <span class="info-label">UPI ID</span>
                 <strong id="upi-id">NEESHANT01@PNB</strong>
-                <p id="qr-caption">QR ready for Rs 10. Scan it or tap the UPI button above.</p>
-              </div>
-            </div>
-
-            <div class="thanks-card" id="thanks-card" hidden>
-              <p class="thanks-title">Action complete.</p>
-              <p class="thanks-text" id="thanks-text">UPI action trigger ho gaya. Agar payment bhej diya, dil se thank you.</p>
-              <div class="surprise-box" id="surprise-box">
-                <span>Surprise unlocked</span>
-                <strong id="surprise-title">Comic Supporter</strong>
-                <p id="surprise-text">Aaj ke liye aapka hidden title unlock ho gaya.</p>
+                <p id="qr-caption">QR ready.</p>
               </div>
             </div>
           </section>
         </div>
+
+        <p class="donate-bottom-line" id="donate-bottom-line">Neeche se mat niklo. Ek aur tap maaro.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-grid">
-      <div>
-        <p class="footer-title">Navigation</p>
-        <a href="index.html#home">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="donate.html">Donate</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
-      <div>
-        <p class="footer-title">Actions</p>
-        <div class="footer-button-group">
-          <a class="button secondary" href="index.html#contact">Contact Buttons</a>
-          <a class="button secondary" href="https://github.com/Neeshant01" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="button secondary" href="index.html#projects">Projects</a>
-        </div>
-      </div>
-      <div>
-        <p class="footer-title">Projects</p>
-        <a href="https://github.com/Neeshant01/auto-yt" target="_blank" rel="noreferrer">Auto-YT</a>
-        <a href="https://github.com/Neeshant01/desi-jarvis" target="_blank" rel="noreferrer">Desi-Jarvis</a>
-        <a href="https://github.com/Neeshant01/Desi-spy" target="_blank" rel="noreferrer">Desi-Spy</a>
-      </div>
-      <div>
-        <p class="footer-title">Support Notes</p>
-        <p>Live QR updates with every amount change.</p>
-        <p>No fake payment confirmation.</p>
-        <p>Comic motion instead of the old 3D robot.</p>
+  <div class="thanks-overlay" id="thanks-overlay" hidden aria-hidden="true">
+    <div class="thanks-modal">
+      <button class="thanks-close" id="thanks-close" type="button" aria-label="Close">×</button>
+      <p class="thanks-badge" id="thanks-badge">WELCOME BACK</p>
+      <h2 id="thanks-overlay-title">Wapas aa gaye.</h2>
+      <p id="thanks-overlay-text">Panel ne dekh liya.</p>
+      <p id="thanks-overlay-nudge">Dil kare to ek aur round maar do.</p>
+      <div class="thanks-overlay-actions">
+        <button class="button primary" id="thanks-donate-again" type="button">Donate</button>
+        <button class="button secondary" id="thanks-dismiss" type="button">Close</button>
       </div>
     </div>
+  </div>
+
+  <footer class="site-footer compact-footer">
+    <div class="shell footer-quick-links">
+      <a class="button secondary" href="index.html#home">Home</a>
+      <a class="button secondary" href="index.html#projects">Projects</a>
+      <a class="button secondary" href="donate.html">Donate</a>
+      <a class="button secondary" href="index.html#contact">Contact</a>
+    </div>
     <div class="shell footer-bottom">
-      <p>&copy; 2026 Nishant Kumar. All rights reserved.</p>
+      <p id="footer-bottom-line">Exit line.</p>
     </div>
   </footer>
 
